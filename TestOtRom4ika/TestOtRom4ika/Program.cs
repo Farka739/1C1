@@ -31,10 +31,10 @@ namespace ex3partial
             Console.WriteLine();
 
             //Print in reverse order
-            for (int i = stringList.Count - 1; i >= 0; i--)
+            /*for (int i = stringList.Count - 1; i >= 0; i--)
             {
                 Console.WriteLine(stringList[i]);
-            }
+            }*/
         }
     }
 }
