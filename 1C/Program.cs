@@ -18,6 +18,6 @@ namespace _1C
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Form1());
             //contribution to the team is the main problem of this project and that man
-        } // privet solnishko <3
+        }
     }
 }
