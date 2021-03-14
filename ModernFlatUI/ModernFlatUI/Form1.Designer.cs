@@ -212,10 +212,11 @@ namespace ModernFlatUI
             this.pnlMain.Name = "pnlMain";
             this.pnlMain.Size = new System.Drawing.Size(788, 620);
             this.pnlMain.TabIndex = 1;
+            this.pnlMain.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlMain_Paint);
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1005, 620);
             this.Controls.Add(this.pnlMain);

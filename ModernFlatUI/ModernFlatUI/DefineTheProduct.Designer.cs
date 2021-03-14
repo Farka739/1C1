@@ -44,9 +44,10 @@ namespace ModernFlatUI
             this.txtbName.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtbName.Location = new System.Drawing.Point(175, 100);
+            this.txtbName.Location = new System.Drawing.Point(131, 81);
+            this.txtbName.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtbName.Name = "txtbName";
-            this.txtbName.Size = new System.Drawing.Size(338, 22);
+            this.txtbName.Size = new System.Drawing.Size(254, 20);
             this.txtbName.TabIndex = 0;
             this.txtbName.Text = "Name";
             this.txtbName.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
@@ -55,10 +56,11 @@ namespace ModernFlatUI
             // 
             this.txtbPrice.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtbPrice.Location = new System.Drawing.Point(519, 100);
-            this.txtbPrice.MaximumSize = new System.Drawing.Size(120, 22);
+            this.txtbPrice.Location = new System.Drawing.Point(389, 81);
+            this.txtbPrice.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtbPrice.MaximumSize = new System.Drawing.Size(91, 22);
             this.txtbPrice.Name = "txtbPrice";
-            this.txtbPrice.Size = new System.Drawing.Size(120, 22);
+            this.txtbPrice.Size = new System.Drawing.Size(91, 20);
             this.txtbPrice.TabIndex = 1;
             this.txtbPrice.Text = "Price";
             // 
@@ -67,21 +69,23 @@ namespace ModernFlatUI
             this.txtbDescription.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtbDescription.Location = new System.Drawing.Point(109, 169);
-            this.txtbDescription.Margin = new System.Windows.Forms.Padding(100, 3, 100, 3);
+            this.txtbDescription.Location = new System.Drawing.Point(82, 137);
+            this.txtbDescription.Margin = new System.Windows.Forms.Padding(75, 2, 75, 2);
             this.txtbDescription.Multiline = true;
             this.txtbDescription.Name = "txtbDescription";
-            this.txtbDescription.Size = new System.Drawing.Size(617, 200);
+            this.txtbDescription.Size = new System.Drawing.Size(464, 163);
             this.txtbDescription.TabIndex = 3;
             this.txtbDescription.Text = "Description";
+            this.txtbDescription.TextChanged += new System.EventHandler(this.txtbDescription_TextChanged);
             // 
             // nudQuantity
             // 
             this.nudQuantity.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.nudQuantity.Location = new System.Drawing.Point(645, 100);
+            this.nudQuantity.Location = new System.Drawing.Point(484, 81);
+            this.nudQuantity.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.nudQuantity.Name = "nudQuantity";
-            this.nudQuantity.Size = new System.Drawing.Size(81, 22);
+            this.nudQuantity.Size = new System.Drawing.Size(61, 20);
             this.nudQuantity.TabIndex = 4;
             this.nudQuantity.ValueChanged += new System.EventHandler(this.numericUpDown1_ValueChanged);
             // 
@@ -89,23 +93,26 @@ namespace ModernFlatUI
             // 
             this.btnProductList.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnProductList.Location = new System.Drawing.Point(109, 411);
-            this.btnProductList.MaximumSize = new System.Drawing.Size(150, 40);
-            this.btnProductList.MinimumSize = new System.Drawing.Size(150, 40);
+            this.btnProductList.Location = new System.Drawing.Point(82, 334);
+            this.btnProductList.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnProductList.MaximumSize = new System.Drawing.Size(112, 32);
+            this.btnProductList.MinimumSize = new System.Drawing.Size(112, 32);
             this.btnProductList.Name = "btnProductList";
-            this.btnProductList.Size = new System.Drawing.Size(150, 40);
+            this.btnProductList.Size = new System.Drawing.Size(112, 32);
             this.btnProductList.TabIndex = 5;
             this.btnProductList.Text = "Products List";
             this.btnProductList.UseVisualStyleBackColor = true;
+            this.btnProductList.Click += new System.EventHandler(this.btnProductList_Click);
             // 
             // btnAddTheProduct
             // 
             this.btnAddTheProduct.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnAddTheProduct.Location = new System.Drawing.Point(576, 411);
-            this.btnAddTheProduct.MaximumSize = new System.Drawing.Size(150, 40);
-            this.btnAddTheProduct.MinimumSize = new System.Drawing.Size(150, 40);
+            this.btnAddTheProduct.Location = new System.Drawing.Point(432, 334);
+            this.btnAddTheProduct.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnAddTheProduct.MaximumSize = new System.Drawing.Size(112, 32);
+            this.btnAddTheProduct.MinimumSize = new System.Drawing.Size(112, 32);
             this.btnAddTheProduct.Name = "btnAddTheProduct";
-            this.btnAddTheProduct.Size = new System.Drawing.Size(150, 40);
+            this.btnAddTheProduct.Size = new System.Drawing.Size(112, 32);
             this.btnAddTheProduct.TabIndex = 6;
             this.btnAddTheProduct.Text = "Add";
             this.btnAddTheProduct.UseVisualStyleBackColor = true;
@@ -115,18 +122,19 @@ namespace ModernFlatUI
             // 
             this.txtbID.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.txtbID.Location = new System.Drawing.Point(109, 100);
-            this.txtbID.MaximumSize = new System.Drawing.Size(120, 22);
+            this.txtbID.Location = new System.Drawing.Point(82, 81);
+            this.txtbID.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtbID.MaximumSize = new System.Drawing.Size(91, 22);
             this.txtbID.Name = "txtbID";
-            this.txtbID.Size = new System.Drawing.Size(60, 22);
+            this.txtbID.Size = new System.Drawing.Size(46, 20);
             this.txtbID.TabIndex = 7;
             this.txtbID.Text = "ID";
             // 
             // DefineTheProduct
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(835, 484);
+            this.ClientSize = new System.Drawing.Size(626, 393);
             this.Controls.Add(this.txtbID);
             this.Controls.Add(this.btnAddTheProduct);
             this.Controls.Add(this.btnProductList);
@@ -135,6 +143,7 @@ namespace ModernFlatUI
             this.Controls.Add(this.txtbPrice);
             this.Controls.Add(this.txtbName);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "DefineTheProduct";
             this.Text = "DefineTheProduct";
             ((System.ComponentModel.ISupportInitialize)(this.nudQuantity)).EndInit();

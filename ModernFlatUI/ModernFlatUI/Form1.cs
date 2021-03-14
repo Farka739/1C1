@@ -13,6 +13,7 @@ namespace ModernFlatUI
     public partial class Form1 : Form
     {
         Form frmDefineTheProduct = new DefineTheProduct() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true};
+        Form frmListofProducts2 = new ListofProducts2() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
 
 
         public Form1()
@@ -53,6 +54,13 @@ namespace ModernFlatUI
             frmDefineTheProduct.Show();
         }
 
+        private void ShowFormListofProducts2()
+        {
+
+            pnlMain.Controls.Add(frmListofProducts2);
+            frmListofProducts2.Show();
+        }
+
         #region Reports
         private void btnReports_Click(object sender, EventArgs e)
         {
@@ -80,6 +88,7 @@ namespace ModernFlatUI
         private void btnListOfProducts_Click(object sender, EventArgs e)
         {
             HideSubMenu();
+            ShowFormListofProducts2();
         }
 
         private void btnProductMaintenance_Click(object sender, EventArgs e)
@@ -91,6 +100,11 @@ namespace ModernFlatUI
         private void btnCashRegister_Click(object sender, EventArgs e)
         {
             HideSubMenu();
+        }
+
+        private void pnlMain_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

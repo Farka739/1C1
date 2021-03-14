@@ -22,7 +22,7 @@ namespace ModernFlatUI
         private string GetTheProduct()
         {
             
-            var productInfo = txtbID.Text + ' ' + txtbName.Text + ' ' + txtbPrice.Text + ' ' + nudQuantity.Text + ' ' + txtbDescription.Text;
+            var productInfo = txtbName.Text + ' ' + txtbPrice.Text + ' ' + nudQuantity.Text + ' ' + txtbDescription.Text;
             return productInfo;
         }
 
@@ -43,6 +43,16 @@ namespace ModernFlatUI
                 productsList.WriteLine(GetTheProduct());
             }
             
+        }
+
+        private void txtbDescription_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnProductList_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
