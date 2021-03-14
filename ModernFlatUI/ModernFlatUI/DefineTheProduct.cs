@@ -11,9 +11,13 @@ using System.IO;
 
 namespace ModernFlatUI
 {
+   
     public partial class DefineTheProduct : Form
     {
+
         public string Path = Environment.CurrentDirectory + "\\ProductList.txt";
+        /* private readonly Form1 _form1 = new Form1(); */
+
         public DefineTheProduct()
         {
             InitializeComponent();
@@ -22,7 +26,7 @@ namespace ModernFlatUI
         private string GetTheProduct()
         {
             
-            var productInfo = txtbID.Text + ' ' + txtbName.Text + ' ' + txtbPrice.Text + ' ' + nudQuantity.Text + ' ' + txtbDescription.Text;
+            var productInfo =  txtbName.Text + '/' + txtbPrice.Text + '/' + nudQuantity.Text + '/' + txtbDescription.Text;
             return productInfo;
         }
 
@@ -42,7 +46,22 @@ namespace ModernFlatUI
             {
                 productsList.WriteLine(GetTheProduct());
             }
+            ProductList.frmProductList.RefreshGrid();
             
         }
+
+        private void DefineTheProduct_Load(object sender, EventArgs e)
+        {
+
+        }
+
+
+        private void btnProductList_Click(object sender, EventArgs e)
+        {
+            Form1.form1.pnlMain.Controls.Clear();
+            Form1.form1.ShowFormProductList();
+            
+        }
+        
     }
 }

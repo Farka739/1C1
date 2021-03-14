@@ -12,12 +12,14 @@ namespace ModernFlatUI
 {
     public partial class Form1 : Form
     {
-        Form frmDefineTheProduct = new DefineTheProduct() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true};
-
+        private readonly Form _frmDefineTheProduct = new DefineTheProduct() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true};
+        private readonly Form _frmProductList = new ProductList() { Dock = DockStyle.Fill, TopLevel = false, TopMost = false};
+        internal static Form1 form1;
 
         public Form1()
         {
             InitializeComponent();
+            form1 = this;
             CustomizeDesign();
         }
 
@@ -27,7 +29,7 @@ namespace ModernFlatUI
             pnlReports.Visible = false;
         }
 
-        private void HideSubMenu()
+        public void HideSubMenu()
         {
             if (pnlProductMaintenance.Visible == true)
                 pnlProductMaintenance.Visible = false;
@@ -49,9 +51,17 @@ namespace ModernFlatUI
         private void ShowFormDefineTheProduct()
         {
 
-            pnlMain.Controls.Add(frmDefineTheProduct);
-            frmDefineTheProduct.Show();
+            pnlMain.Controls.Add(_frmDefineTheProduct);
+            _frmDefineTheProduct.Show();
         }
+
+        public void ShowFormProductList()
+        {
+
+            pnlMain.Controls.Add(_frmProductList);
+            _frmProductList.Show();
+        }
+
 
         #region Reports
         private void btnReports_Click(object sender, EventArgs e)
@@ -74,12 +84,15 @@ namespace ModernFlatUI
         private void btnDefineTheProduct_Click(object sender, EventArgs e)
         {
             HideSubMenu();
+            pnlMain.Controls.Clear(); 
             ShowFormDefineTheProduct(); 
         }
 
         private void btnListOfProducts_Click(object sender, EventArgs e)
         {
             HideSubMenu();
+            pnlMain.Controls.Clear();
+            ShowFormProductList(); 
         }
 
         private void btnProductMaintenance_Click(object sender, EventArgs e)
@@ -92,5 +105,15 @@ namespace ModernFlatUI
         {
             HideSubMenu();
         }
+
+        private void pnlMain_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+        }
+     
     }
 }

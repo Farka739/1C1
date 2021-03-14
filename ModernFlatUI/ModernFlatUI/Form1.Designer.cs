@@ -212,6 +212,7 @@ namespace ModernFlatUI
             this.pnlMain.Name = "pnlMain";
             this.pnlMain.Size = new System.Drawing.Size(788, 620);
             this.pnlMain.TabIndex = 1;
+            this.pnlMain.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlMain_Paint);
             // 
             // Form1
             // 
@@ -226,6 +227,7 @@ namespace ModernFlatUI
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.pnlSubMenu.ResumeLayout(false);
             this.pnlProductMaintenance.ResumeLayout(false);
             this.pnlReports.ResumeLayout(false);
@@ -238,15 +240,15 @@ namespace ModernFlatUI
         private System.Windows.Forms.Panel pnlSubMenu;
         private System.Windows.Forms.Button btnCashRegister;
         private System.Windows.Forms.Panel logoPanel;
-        private System.Windows.Forms.Panel pnlProductMaintenance;
+        public System.Windows.Forms.Panel pnlProductMaintenance;
         private System.Windows.Forms.Button btnListOfProducts;
         private System.Windows.Forms.Button btnDefineTheProduct;
         private System.Windows.Forms.Button btnProductMaintenance;
-        private System.Windows.Forms.Panel pnlReports;
+        public System.Windows.Forms.Panel pnlReports;
         private System.Windows.Forms.Button btnTenMostSoldItems;
         private System.Windows.Forms.Button btnTotalSalesReport;
         private System.Windows.Forms.Button btnReports;
-        private System.Windows.Forms.Panel pnlMain;
+        public System.Windows.Forms.Panel pnlMain;
     }
 }
 

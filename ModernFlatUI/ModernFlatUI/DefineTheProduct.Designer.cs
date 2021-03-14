@@ -35,7 +35,6 @@ namespace ModernFlatUI
             this.nudQuantity = new System.Windows.Forms.NumericUpDown();
             this.btnProductList = new System.Windows.Forms.Button();
             this.btnAddTheProduct = new System.Windows.Forms.Button();
-            this.txtbID = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.nudQuantity)).BeginInit();
             this.SuspendLayout();
             // 
@@ -44,9 +43,9 @@ namespace ModernFlatUI
             this.txtbName.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtbName.Location = new System.Drawing.Point(175, 100);
+            this.txtbName.Location = new System.Drawing.Point(109, 100);
             this.txtbName.Name = "txtbName";
-            this.txtbName.Size = new System.Drawing.Size(338, 22);
+            this.txtbName.Size = new System.Drawing.Size(404, 22);
             this.txtbName.TabIndex = 0;
             this.txtbName.Text = "Name";
             this.txtbName.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
@@ -97,6 +96,7 @@ namespace ModernFlatUI
             this.btnProductList.TabIndex = 5;
             this.btnProductList.Text = "Products List";
             this.btnProductList.UseVisualStyleBackColor = true;
+            this.btnProductList.Click += new System.EventHandler(this.btnProductList_Click);
             // 
             // btnAddTheProduct
             // 
@@ -111,23 +111,11 @@ namespace ModernFlatUI
             this.btnAddTheProduct.UseVisualStyleBackColor = true;
             this.btnAddTheProduct.Click += new System.EventHandler(this.btnAddTheProduct_Click);
             // 
-            // txtbID
-            // 
-            this.txtbID.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.txtbID.Location = new System.Drawing.Point(109, 100);
-            this.txtbID.MaximumSize = new System.Drawing.Size(120, 22);
-            this.txtbID.Name = "txtbID";
-            this.txtbID.Size = new System.Drawing.Size(60, 22);
-            this.txtbID.TabIndex = 7;
-            this.txtbID.Text = "ID";
-            // 
             // DefineTheProduct
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(835, 484);
-            this.Controls.Add(this.txtbID);
             this.Controls.Add(this.btnAddTheProduct);
             this.Controls.Add(this.btnProductList);
             this.Controls.Add(this.nudQuantity);
@@ -137,6 +125,7 @@ namespace ModernFlatUI
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "DefineTheProduct";
             this.Text = "DefineTheProduct";
+            this.Load += new System.EventHandler(this.DefineTheProduct_Load);
             ((System.ComponentModel.ISupportInitialize)(this.nudQuantity)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -151,6 +140,5 @@ namespace ModernFlatUI
         private System.Windows.Forms.NumericUpDown nudQuantity;
         private System.Windows.Forms.Button btnProductList;
         private System.Windows.Forms.Button btnAddTheProduct;
-        private System.Windows.Forms.TextBox txtbID;
     }
 }
