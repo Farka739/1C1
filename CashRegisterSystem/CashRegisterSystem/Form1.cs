@@ -58,7 +58,7 @@ namespace CashRegisterSystem
                 col.SortMode = DataGridViewColumnSortMode.NotSortable;
             }
 
-            if (new FileInfo(@"C:\Users\Stanislav\source\repos\CashRegisterSystem\ram.txt").Length == 0)
+            if (new FileInfo(Environment.CurrentDirectory + "\\ram.txt").Length == 0)
             {
                 button1.Enabled = false;
             }
@@ -82,7 +82,7 @@ namespace CashRegisterSystem
 
 
 
-            string[] exceptlines = File.ReadAllLines(@"C:\Users\Stanislav\source\repos\CashRegisterSystem\OldProductList.txt");
+            string[] exceptlines = File.ReadAllLines(@"OldProductList.txt");
             string[] exceptvalues;
             
             for(int i = 0; i < exceptlines.Length; i++)
@@ -108,7 +108,7 @@ namespace CashRegisterSystem
                         string exceptresult = string.Join("/", exceptvalues);
 
                         exceptlines[i] = exceptresult;
-                        File.WriteAllText(@"C:\Users\Stanislav\source\repos\CashRegisterSystem\OldProductList.txt", string.Join("\n", exceptlines));
+                        File.WriteAllText(@"OldProductList.txt", string.Join("\n", exceptlines));
                     }
                 }
             }
@@ -117,7 +117,7 @@ namespace CashRegisterSystem
 
 
 
-            string[] lines = File.ReadAllLines(@"C:\Users\Stanislav\source\repos\CashRegisterSystem\OldProductList.txt");
+            string[] lines = File.ReadAllLines(@"OldProductList.txt");
             string[] values;
 
             for (int i = 0; i < lines.Length; i++)
@@ -234,7 +234,7 @@ namespace CashRegisterSystem
             {
                 ordertable.Clear();
             }
-            string fileName = @"C:\Users\Stanislav\source\repos\CashRegisterSystem\ram.txt";
+            string fileName = @"ram.txt";
             if (!File.Exists(fileName))
             {
                 using (StreamWriter sw = File.CreateText(fileName))
@@ -248,7 +248,7 @@ namespace CashRegisterSystem
                 OrderList.WriteLine(GetTheOrder());
             }
 
-            string[] lines2 = File.ReadAllLines(@"C:\Users\Stanislav\source\repos\CashRegisterSystem\ram.txt");
+            string[] lines2 = File.ReadAllLines(@"ram.txt");
             string[] values2;
 
             for (int i = 0; i < lines2.Length; i++)
@@ -269,7 +269,7 @@ namespace CashRegisterSystem
             textBox1.Clear();
             total.Text = "0";
 
-            if (new FileInfo(@"C:\Users\Stanislav\source\repos\CashRegisterSystem\ram.txt").Length == 0)
+            if (new FileInfo(@"ram.txt").Length == 0)
             {
                 button1.Enabled = false;
             }
@@ -287,14 +287,14 @@ namespace CashRegisterSystem
 
         private void button4_Click(object sender, EventArgs e)
         {
-            File.WriteAllText(@"C:\Users\Stanislav\source\repos\CashRegisterSystem\ram.txt", string.Empty);
+            File.WriteAllText(@"ram.txt", string.Empty);
             if (ordertable != null)
             {
                 ordertable.Clear();
             }
             fulltotal = 0;
             FullTotal.Clear();
-            if (new FileInfo(@"C:\Users\Stanislav\source\repos\CashRegisterSystem\ram.txt").Length == 0)
+            if (new FileInfo(@"ram.txt").Length == 0)
             {
                 button1.Enabled = false;
             }
@@ -311,7 +311,7 @@ namespace CashRegisterSystem
                 e.Cancel = true;
             } else
             {
-                File.WriteAllText(@"C:\Users\Stanislav\source\repos\CashRegisterSystem\ram.txt", string.Empty);
+                File.WriteAllText(@"ram.txt", string.Empty);
                 if (ordertable != null)
                 {
                     ordertable.Clear();
@@ -324,7 +324,7 @@ namespace CashRegisterSystem
         private void button1_Click(object sender, EventArgs e)
         {
 
-            string dir = @"C:\Users\Stanislav\source\repos\CashRegisterSystem\CashRegisterSystem\Receipts";
+            string dir = @"Receipts";
             if (!Directory.Exists(dir))
             {
                 Directory.CreateDirectory(dir);
@@ -339,22 +339,22 @@ namespace CashRegisterSystem
                     string instruction = "The information below is NAME | PRICE | AMOUNT | ID NUMBER IN THE TABLE";
                     tw.WriteLine(instruction);
                     for (int i = 0; i < dataOrderWindow.Rows.Count; i++)
+                    {
+                        for (int j = 0; j < dataOrderWindow.Columns.Count; j++)
                         {
-                          for (int j = 0; j < dataOrderWindow.Columns.Count; j++)
-                          {
-                              tw.Write($"{dataOrderWindow.Rows[i].Cells[j].Value.ToString()}");
+                            tw.Write($"{dataOrderWindow.Rows[i].Cells[j].Value.ToString()}");
 
-                              if (j != dataOrderWindow.Columns.Count - 1)
-                              {
-                                  tw.Write("/");
-                              }
-                          }
-                          tw.WriteLine();
+                            if (j != dataOrderWindow.Columns.Count - 1)
+                            {
+                                tw.Write("/");
+                            }
+                        }
+                        tw.WriteLine();
                     }
                 }
-                string[] OrderListFileLines = File.ReadAllLines(@"C:\Users\Stanislav\source\repos\CashRegisterSystem\ram.txt");
-                string PathOldProductFile = @"C:\Users\Stanislav\source\repos\CashRegisterSystem\OldProductList.txt";
-                string PathNewProductFile = @"C:\Users\Stanislav\source\repos\CashRegisterSystem\NewProductList.txt";
+                string[] OrderListFileLines = File.ReadAllLines(@"ram.txt");
+                string PathOldProductFile = @"OldProductList.txt";
+                string PathNewProductFile = @"NewProductList.txt";
 
                 File.Copy(PathOldProductFile, PathNewProductFile, true);
                 
@@ -368,7 +368,7 @@ namespace CashRegisterSystem
 
                         int ID = Int32.Parse(currentstringID);
 
-                        string[] PathNewProductFileLines = File.ReadAllLines(@"C:\Users\Stanislav\source\repos\CashRegisterSystem\NewProductList.txt");
+                        string[] PathNewProductFileLines = File.ReadAllLines(@"NewProductList.txt");
 
                         string[] PathNewProductFileValues = PathNewProductFileLines[ID].ToString().Split('/');
                         string oldamount = PathNewProductFileValues[2];
@@ -381,7 +381,7 @@ namespace CashRegisterSystem
                         string result = string.Join("/", PathNewProductFileValues);
 
                         PathNewProductFileLines[ID] = result;
-                        File.WriteAllText(@"C:\Users\Stanislav\source\repos\CashRegisterSystem\NewProductList.txt", string.Join("\n", PathNewProductFileLines));
+                        File.WriteAllText(@"NewProductList.txt", string.Join("\n", PathNewProductFileLines));
                        
                         
                     }
@@ -397,6 +397,7 @@ namespace CashRegisterSystem
                     }
                     fulltotal = 0;
                     FullTotal.Clear();
+                    button4_Click(sender, e);
                 }
                 button3_Click(sender, e);
             }
@@ -410,6 +411,11 @@ namespace CashRegisterSystem
                 e.Handled = true;
             }
            
+        }
+
+        private void dataEditWindow_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }
