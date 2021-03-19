@@ -16,7 +16,7 @@ namespace ModernFlatUI
     public partial class DefineTheProduct : Form
     {
 
-        public string Path = Environment.CurrentDirectory + "\\ProductList.txt";
+        public string Path = Environment.CurrentDirectory + "\\OldProductList.txt";
         public string TempPath = Environment.CurrentDirectory + "\\TempFile.txt";
 
         internal static DefineTheProduct FrmDefineTheProduct;
@@ -68,8 +68,8 @@ namespace ModernFlatUI
 
         private void btnProductList_Click(object sender, EventArgs e)
         {
-            Form1.form1.pnlMain.Controls.Clear();
-            Form1.form1.ShowFormProductList();
+            MainForm.Mainform.pnlMain.Controls.Clear();
+            MainForm.Mainform.ShowFormProductList();
             
         }
 

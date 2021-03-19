@@ -53,9 +53,11 @@ namespace ModernFlatUI
             this.dgvDescription});
             this.dgvProductList.Location = new System.Drawing.Point(79, 49);
             this.dgvProductList.Margin = new System.Windows.Forms.Padding(70, 40, 70, 40);
+            this.dgvProductList.MultiSelect = false;
             this.dgvProductList.Name = "dgvProductList";
             this.dgvProductList.RowHeadersWidth = 51;
             this.dgvProductList.RowTemplate.Height = 24;
+            this.dgvProductList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvProductList.Size = new System.Drawing.Size(855, 402);
             this.dgvProductList.TabIndex = 0;
             this.dgvProductList.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProductList_CellEndEdit);
@@ -64,7 +66,7 @@ namespace ModernFlatUI
             // 
             this.btnOpenTheDescription.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnOpenTheDescription.Location = new System.Drawing.Point(911, 52);
+            this.btnOpenTheDescription.Location = new System.Drawing.Point(894, 52);
             this.btnOpenTheDescription.MaximumSize = new System.Drawing.Size(21, 21);
             this.btnOpenTheDescription.MinimumSize = new System.Drawing.Size(21, 21);
             this.btnOpenTheDescription.Name = "btnOpenTheDescription";
@@ -127,12 +129,12 @@ namespace ModernFlatUI
             // 
             this.dgvQuantity.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             this.dgvQuantity.FillWeight = 104.8128F;
-            this.dgvQuantity.HeaderText = "Quantity";
+            this.dgvQuantity.HeaderText = "Amount";
             this.dgvQuantity.MinimumWidth = 6;
             this.dgvQuantity.Name = "dgvQuantity";
             this.dgvQuantity.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvQuantity.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.dgvQuantity.Width = 70;
+            this.dgvQuantity.Width = 120;
             // 
             // dgvDescription
             // 
