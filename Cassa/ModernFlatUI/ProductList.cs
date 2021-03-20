@@ -42,7 +42,7 @@ namespace ModernFlatUI
 
         public readonly List<Product> products = new List<Product>();
 
-        private void GetTheProductInfo()
+        public void GetTheProductInfo()
         {
             var lines = File.ReadAllLines(Path);
             foreach (var line in lines)

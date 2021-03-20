@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel;
 using System.Data;
 using System.Globalization;
 using System.IO;
@@ -15,22 +16,22 @@ namespace ModernFlatUI
             InitializeComponent();
             FrmForm1 = this;
         }
-        int fakevar = 0;
-        double totalsum = 0.0;
-        double total1st = 0.0;
-        double total2st = 0.0;
-        int a = 1;
+        int fakevar;
+        double totalsum;
+        double total1st;
+        double total2st;
+        public int a = 1;
         string b = "";
-        double fulltotal = 0.0;
-        string exceptword = "Not Availabale";
+        double fulltotal;
+        public string exceptword = "Not Availabale";
 
-        DataTable table = new DataTable();
+        public DataTable table = new DataTable();
         DataTable ordertable = new DataTable();
         private void Form1_Load(object sender, EventArgs e)
         {
 
-            FormClosing += new FormClosingEventHandler(Form1_Closing);
-            button1.Click += new EventHandler(button1_Click);
+            FormClosing += Form1_Closing;
+            button1.Click += button1_Click;
 
             table.Columns.AddRange(new DataColumn[4] { new DataColumn("Name", typeof(string)),
                         new DataColumn("Price", typeof(string)),
@@ -38,19 +39,19 @@ namespace ModernFlatUI
                         new DataColumn("Description", typeof(string))});
 
             dataEditWindow.DataSource = table;
-            this.dataEditWindow.DataSource = table;
-            this.dataEditWindow.AllowUserToAddRows = false;
-            this.dataEditWindow.Columns["Description"].Visible = false;
+            dataEditWindow.DataSource = table;
+            dataEditWindow.AllowUserToAddRows = false;
+            dataEditWindow.Columns["Description"].Visible = false;
 
             ordertable.Columns.AddRange(new DataColumn[4] { new DataColumn("Name", typeof(string)),
                         new DataColumn("Price", typeof(string)),
                         new DataColumn("Amount", typeof(string)),
                         new DataColumn("RowNum", typeof(string))});
             dataOrderWindow.DataSource = ordertable;
-            this.dataOrderWindow.DataSource = ordertable;
-            this.dataOrderWindow.AllowUserToAddRows = false;
+            dataOrderWindow.DataSource = ordertable;
+            dataOrderWindow.AllowUserToAddRows = false;
 
-            this.dataOrderWindow.Columns["RowNum"].Visible = false;
+            dataOrderWindow.Columns["RowNum"].Visible = false;
 
             foreach (DataGridViewColumn col in dataEditWindow.Columns)
             {
@@ -61,14 +62,7 @@ namespace ModernFlatUI
                 col.SortMode = DataGridViewColumnSortMode.NotSortable;
             }
 
-            if (new FileInfo(Environment.CurrentDirectory + "\\ram.txt").Length == 0)
-            {
-                button1.Enabled = false;
-            }
-            else
-            {
-                button1.Enabled = true;
-            }
+            button1.Enabled = new FileInfo(Environment.CurrentDirectory + "\\ram.txt").Length != 0;
 
         }
 
@@ -76,99 +70,89 @@ namespace ModernFlatUI
         {
             if(a != 0)
             {
-                button3.Text = "REFRESH";
-            }
-            if(table != null)
-            {
-                table.Clear();
+                button3.Text = @"REFRESH";
             }
 
+            table?.Clear();
 
-
-            string[] exceptlines = File.ReadAllLines(@"OldProductList.txt");
+            var exceptlines = File.ReadAllLines(@"OldProductList.txt");
             string[] exceptvalues;
             
-            for(int i = 0; i < exceptlines.Length; i++)
+            for(var i = 0; i < exceptlines.Length; i++)
             {
 
-                exceptvalues = exceptlines[i].ToString().Split('/');
-                int intexval = 0;
+                exceptvalues = exceptlines[i].Split('/');
+                var intexval = 0;
 
-                for (int j = 0; j < exceptvalues.Length; j++)
+                for (var j = 0; j < exceptvalues.Length; j++)
                 {
-                    string exceptionvalue = exceptvalues[2];
+                    var exceptionvalue = exceptvalues[2];
                     
-                    bool exceptbool = String.Equals(exceptionvalue, exceptword, StringComparison.InvariantCulture);
+                    var exceptbool = string.Equals(exceptionvalue, exceptword, StringComparison.InvariantCulture);
                     if (exceptbool)
                     {
 
                     } else { 
-                    intexval = Int32.Parse(exceptionvalue);
+                        intexval = int.Parse(exceptionvalue);
                     }
-                    if (intexval <= 0)
-                    {
-                        exceptvalues[2] = "Not Availabale";
-                        string exceptresult = string.Join("/", exceptvalues);
 
-                        exceptlines[i] = exceptresult;
-                        File.WriteAllText(@"OldProductList.txt", string.Join("\n", exceptlines));
-                    }
+                    if (intexval > 0) continue;
+                    exceptvalues[2] = "Not Availabale";
+                    var exceptresult = string.Join("/", exceptvalues);
+
+                    exceptlines[i] = exceptresult;
+                    File.WriteAllText(@"OldProductList.txt", string.Join("\n", exceptlines));
                 }
             }
             
-
-
-
-
-            string[] lines = File.ReadAllLines(@"OldProductList.txt");
+            var lines = File.ReadAllLines(@"OldProductList.txt");
             string[] values;
 
-            for (int i = 0; i < lines.Length; i++)
+            foreach (var line in lines)
             {
-                values = lines[i].ToString().Split('/');
-                string[] row = new string[values.Length];
+                values = line.Split('/');
+                var row = new string[values.Length];
 
-                for (int j = 0; j < values.Length; j++)
+                for (var j = 0; j < values.Length; j++)
                 {
                     row[j] = values[j].Trim();
                 }
-                table.Rows.Add(row);
+
+                table?.Rows.Add(row);
                 a++;
             }
         }
 
         private void dataEditWindow_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            if (e.RowIndex >= 0)
+            if (e.RowIndex < 0) return;
+            textBox1.Enabled = true;
+            button2.Enabled = true;
+            var row = dataEditWindow.Rows[e.RowIndex];
+            txtName.Text = row.Cells[0].Value.ToString();
+            b = row.Cells[1].Value.ToString();
+            txtPrice.Text = row.Cells[1].Value.ToString();
+            txtAmount.Text = row.Cells[2].Value.ToString();
+            var cmcExCheck = string.Equals(exceptword, txtAmount.Text, StringComparison.InvariantCulture);
+            if (cmcExCheck)
             {
-                textBox1.Enabled = true;
-                button2.Enabled = true;
-                DataGridViewRow row = dataEditWindow.Rows[e.RowIndex];
-                txtName.Text = row.Cells[0].Value.ToString();
-                b = row.Cells[1].Value.ToString();
-                txtPrice.Text = row.Cells[1].Value.ToString();
-                txtAmount.Text = row.Cells[2].Value.ToString();
-                bool CMCExCheck = String.Equals(exceptword, txtAmount.Text, StringComparison.InvariantCulture);
-                if (CMCExCheck)
-                {
-                    textBox1.Enabled = false;
-                    button2.Enabled = false;
-                    button1.Enabled = false;
-                }
-                string totam = textBox1.Text;
-                bool b1 = string.IsNullOrEmpty(totam);
-                if (b1)
-                {
-                    total.Text = "0";
-                    button2.Enabled = false;
-                }
-                else
-                {
-                    total1st = Int32.Parse(textBox1.Text);
-                    total2st = Double.Parse(txtPrice.Text, CultureInfo.InvariantCulture);
-                    totalsum = total1st * total2st;
-                    total.Text = $"{totalsum}";
-                }
+                textBox1.Enabled = false;
+                button2.Enabled = false;
+                button1.Enabled = false;
+            }
+            var totam = textBox1.Text;
+            var b1 = string.IsNullOrEmpty(totam);
+            if (b1)
+            {
+                total.Text = @"0";
+                button2.Enabled = false;
+            }
+            else
+            {
+                total1st = int.Parse(textBox1.Text);
+                total2st = double.Parse(txtPrice.Text, CultureInfo.InvariantCulture);
+                totalsum = total1st * total2st;
+                total.Text = $@"{totalsum}";
             }
         }
 
@@ -188,29 +172,29 @@ namespace ModernFlatUI
         private void textBox1_TextChanged_1(object sender, EventArgs e)
         {
 
-            string totam = textBox1.Text;
-            bool b1 = string.IsNullOrEmpty(totam);
+            var totam = textBox1.Text;
+            var b1 = string.IsNullOrEmpty(totam);
            
             if (b1)
             {
-                total.Text = "0";
+                total.Text = @"0";
                 button2.Enabled = false;
 
             }
             else
             {
-                if (Int32.Parse(textBox1.Text) > Int32.Parse(txtAmount.Text))
+                if (int.Parse(textBox1.Text) > int.Parse(txtAmount.Text))
                 {
-                    MessageBox.Show("Your value is out of the range of available items!");
+                    MessageBox.Show(@"Your value is out of the range of available items!");
                     button2.Enabled = false;
                 }
                 else
                 {
                     button2.Enabled = true;
-                    total1st = Int32.Parse(textBox1.Text);
-                    total2st = Double.Parse(txtPrice.Text, CultureInfo.InvariantCulture); 
+                    total1st = int.Parse(textBox1.Text);
+                    total2st = double.Parse(txtPrice.Text, CultureInfo.InvariantCulture); 
                     totalsum = total1st * total2st;
-                    total.Text = $"{totalsum}";
+                    total.Text = $@"{totalsum}";
                 }
             }
 
@@ -233,33 +217,29 @@ namespace ModernFlatUI
             var rowIndexR = dataEditWindow.CurrentCell.RowIndex;
 
 
-            if (ordertable != null)
-            {
-                ordertable.Clear();
-            }
-            string fileName = @"ram.txt";
+            ordertable?.Clear();
+            const string fileName = @"ram.txt";
             if (!File.Exists(fileName))
             {
-                using (StreamWriter sw = File.CreateText(fileName))
+                using (var sw = File.CreateText(fileName))
                 {
                     fakevar = 2;
                 }
             }
-            string Path = Environment.CurrentDirectory + "\\ram.txt";
+            var Path = Environment.CurrentDirectory + "\\ram.txt";
             using (var OrderList = File.AppendText(fileName))
             {
                 OrderList.WriteLine(GetTheOrder());
             }
 
-            string[] lines2 = File.ReadAllLines(@"ram.txt");
-            string[] values2;
+            var lines2 = File.ReadAllLines(@"ram.txt");
 
-            for (int i = 0; i < lines2.Length; i++)
+            foreach (var line in lines2)
             {
-                values2 = lines2[i].ToString().Split('/');
-                string[] row = new string[values2.Length];
+                var values2 = line.Split('/');
+                var row = new string[values2.Length];
 
-                for (int j = 0; j < values2.Length; j++)
+                for (var j = 0; j < values2.Length; j++)
                 {
                     row[j] = values2[j].Trim();
                 }
@@ -267,19 +247,12 @@ namespace ModernFlatUI
                 a++;
             }
 
-            fulltotal = fulltotal + totalsum;
+            fulltotal += totalsum;
             FullTotal.Text = $"{fulltotal}";
             textBox1.Clear();
             total.Text = "0";
 
-            if (new FileInfo(@"ram.txt").Length == 0)
-            {
-                button1.Enabled = false;
-            }
-            else
-            {
-                button1.Enabled = true;
-            }
+            button1.Enabled = new FileInfo(@"ram.txt").Length != 0;
 
         }
 
@@ -291,23 +264,13 @@ namespace ModernFlatUI
         private void button4_Click(object sender, EventArgs e)
         {
             File.WriteAllText(@"ram.txt", string.Empty);
-            if (ordertable != null)
-            {
-                ordertable.Clear();
-            }
+            ordertable?.Clear();
             fulltotal = 0;
             FullTotal.Clear();
-            if (new FileInfo(@"ram.txt").Length == 0)
-            {
-                button1.Enabled = false;
-            }
-            else
-            {
-                button1.Enabled = true;
-            }
+            button1.Enabled = new FileInfo(@"ram.txt").Length != 0;
         }
 
-        private void Form1_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        private void Form1_Closing(object sender, CancelEventArgs e)
         {
             if (MessageBox.Show("Are you sure you want to quit?", "My Application", MessageBoxButtons.YesNo) == DialogResult.No)
             {
@@ -315,10 +278,7 @@ namespace ModernFlatUI
             } else
             {
                 File.WriteAllText(@"ram.txt", string.Empty);
-                if (ordertable != null)
-                {
-                    ordertable.Clear();
-                }
+                ordertable?.Clear();
                 fulltotal = 0;
             }
             
@@ -326,85 +286,86 @@ namespace ModernFlatUI
 
         private void button1_Click(object sender, EventArgs e)
         {
+            while (true)
+            {
+                const string dir = @"Receipts";
+                if (!Directory.Exists(dir))
+                {
+                    Directory.CreateDirectory(dir);
+                    continue;
+                }
 
-            string dir = @"Receipts";
-            if (!Directory.Exists(dir))
-            {
-                Directory.CreateDirectory(dir);
-                button1_Click(sender, e);
-            } else
-            {
-                string nameofthefile = dir + "\\" + DateTime.Now.ToString("dd-MM-yyyy-HH-mm-ss", new System.Globalization.CultureInfo("en-US")) + ".txt";
+                var nameofthefile = dir + "\\" + DateTime.Now.ToString("dd-MM-yyyy-HH-mm-ss", new CultureInfo("en-US")) + ".txt";
                 using (TextWriter tw = new StreamWriter(nameofthefile))
                 {
-                    string grandtotal = "Total: " + FullTotal.Text;
+                    var grandtotal = "Total: " + FullTotal.Text;
                     tw.WriteLine(grandtotal);
-                    string instruction = "The information below is NAME | PRICE | AMOUNT | ID NUMBER IN THE TABLE";
+                    const string instruction = "The information below is NAME | PRICE | AMOUNT | ID NUMBER IN THE TABLE";
                     tw.WriteLine(instruction);
-                    for (int i = 0; i < dataOrderWindow.Rows.Count; i++)
+                    for (var i = 0; i < dataOrderWindow.Rows.Count; i++)
                     {
-                        for (int j = 0; j < dataOrderWindow.Columns.Count; j++)
+                        for (var j = 0; j < dataOrderWindow.Columns.Count; j++)
                         {
-                            tw.Write($"{dataOrderWindow.Rows[i].Cells[j].Value.ToString()}");
+                            tw.Write($"{dataOrderWindow.Rows[i].Cells[j].Value}");
 
                             if (j != dataOrderWindow.Columns.Count - 1)
                             {
                                 tw.Write("/");
                             }
                         }
+
                         tw.WriteLine();
                     }
                 }
-                string[] OrderListFileLines = File.ReadAllLines(@"ram.txt");
-                string PathOldProductFile = @"OldProductList.txt";
-                string PathNewProductFile = @"NewProductList.txt";
 
-                File.Copy(PathOldProductFile, PathNewProductFile, true);
-                
-               if(fakevar != 1) { 
-                    for (int i = 0; i <= OrderListFileLines.Length - 1; i++)
+                var orderListFileLines = File.ReadAllLines(@"ram.txt");
+                const string pathOldProductFile = @"OldProductList.txt";
+                const string pathNewProductFile = @"NewProductList.txt";
+
+                File.Copy(pathOldProductFile, pathNewProductFile, true);
+
+                if (fakevar != 1)
+                {
+                    for (var i = 0; i <= orderListFileLines.Length - 1; i++)
                     {
-                        
-                        string[] OrderListFileValues = OrderListFileLines[i].ToString().Split('/');
-                        string currentamount = OrderListFileValues[2];
-                        string currentstringID = OrderListFileValues[3];
+                        var orderListFileValues = orderListFileLines[i].Split('/');
+                        var currentamount = orderListFileValues[2];
+                        var currentstringId = orderListFileValues[3];
 
-                        int ID = Int32.Parse(currentstringID);
+                        var id = int.Parse(currentstringId);
 
-                        string[] PathNewProductFileLines = File.ReadAllLines(@"NewProductList.txt");
+                        var pathNewProductFileLines = File.ReadAllLines(@"NewProductList.txt");
 
-                        string[] PathNewProductFileValues = PathNewProductFileLines[ID].ToString().Split('/');
-                        string oldamount = PathNewProductFileValues[2];
-                        int intoldamount = Int32.Parse(oldamount);
-                        int intcurrentamount = Int32.Parse(currentamount);
-                        int inttotal = intoldamount - intcurrentamount;
+                        var pathNewProductFileValues = pathNewProductFileLines[id].Split('/');
+                        var oldamount = pathNewProductFileValues[2];
+                        var intoldamount = int.Parse(oldamount);
+                        var intcurrentamount = int.Parse(currentamount);
+                        var inttotal = intoldamount - intcurrentamount;
 
-                        PathNewProductFileValues[2] = inttotal.ToString();
+                        pathNewProductFileValues[2] = inttotal.ToString();
 
-                        string result = string.Join("/", PathNewProductFileValues);
+                        var result = string.Join("/", pathNewProductFileValues);
 
-                        PathNewProductFileLines[ID] = result;
-                        File.WriteAllText(@"NewProductList.txt", string.Join("\n", PathNewProductFileLines));
-                       
-                        
+                        pathNewProductFileLines[id] = result;
+                        File.WriteAllText(@"NewProductList.txt", string.Join("\n", pathNewProductFileLines));
                     }
                 }
-                File.Copy(PathNewProductFile, PathOldProductFile, true);
+
+                File.Copy(pathNewProductFile, pathOldProductFile, true);
                 fakevar++;
                 if (fakevar == 2)
                 {
                     fakevar = 0;
-                    if (ordertable != null)
-                    {
-                        ordertable.Clear();
-                    }
+                    ordertable?.Clear();
                     fulltotal = 0;
                     FullTotal.Clear();
                     button4_Click(sender, e);
                 }
+
                 button3_Click(sender, e);
+
+                break;
             }
-            
         }
 
         private void textBox1_KeyPress(object sender, KeyPressEventArgs e)

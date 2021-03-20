@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -55,7 +56,6 @@ namespace ModernFlatUI
 
         public void ShowFormDefineTheProduct()
         {
-            /////
             pnlMain.Controls.Add(_frmDefineTheProduct);
             _frmDefineTheProduct.Show();
         }
@@ -72,6 +72,66 @@ namespace ModernFlatUI
             pnlMain.Controls.Add(_frmCashRegisterSystem);
             _frmCashRegisterSystem.Show();
         }
+
+        private void RefreshCashRegisterSystemFromTheStart()
+        {
+            if (FrmForm1.a != 0)
+            {
+                FrmForm1.button3.Text = @"REFRESH";
+            }
+
+            FrmForm1.table?.Clear();
+
+            var exceptlines = File.ReadAllLines(@"OldProductList.txt");
+            string[] exceptvalues;
+
+            for (var i = 0; i < exceptlines.Length; i++)
+            {
+
+                exceptvalues = exceptlines[i].Split('/');
+                var intexval = 0;
+
+                for (var j = 0; j < exceptvalues.Length; j++)
+                {
+                    var exceptionvalue = exceptvalues[2];
+
+                    var exceptbool = string.Equals(exceptionvalue, FrmForm1.exceptword, StringComparison.InvariantCulture);
+                    if (exceptbool)
+                    {
+
+                    }
+                    else
+                    {
+                        intexval = int.Parse(exceptionvalue);
+                    }
+
+                    if (intexval > 0) continue;
+                    exceptvalues[2] = "Not Availabale";
+                    var exceptresult = string.Join("/", exceptvalues);
+
+                    exceptlines[i] = exceptresult;
+                    File.WriteAllText(@"OldProductList.txt", string.Join("\n", exceptlines));
+                }
+            }
+
+            var lines = File.ReadAllLines(@"OldProductList.txt");
+            string[] values;
+
+            foreach (var line in lines)
+            {
+                values = line.Split('/');
+                var row = new object[values.Length];
+
+                for (var j = 0; j < values.Length; j++)
+                {
+                    row[j] = values[j].Trim();
+                }
+
+                //FrmForm1.table?.Rows.Add(row);
+                FrmForm1.a++;
+            }
+        }
+
         #region Reports
         private void btnReports_Click(object sender, EventArgs e)
         {
@@ -81,6 +141,7 @@ namespace ModernFlatUI
         private void btnTotalSalesReport_Click(object sender, EventArgs e)
         {
             HideSubMenu();
+            
         }
 
         private void btnTenMostSoldItems_Click(object sender, EventArgs e)
@@ -104,6 +165,13 @@ namespace ModernFlatUI
         {
             HideSubMenu();
             pnlMain.Controls.Clear();
+            FrmProductList.products.Clear();
+            FrmProductList.GetTheProductInfo();
+            FrmProductList.dgvProductList.Rows.Clear();
+            for (var i = 0; i < FrmProductList.products.Count; i++)
+            {
+                FrmProductList.dgvProductList.Rows.Add(FrmProductList.products[i].Name, FrmProductList.products[i].Price, FrmProductList.products[i].Quantity, FrmProductList.products[i].Description);
+            }
             ShowFormProductList(); 
         }
 
@@ -117,6 +185,7 @@ namespace ModernFlatUI
         {
             HideSubMenu();
             pnlMain.Controls.Clear();
+            RefreshCashRegisterSystemFromTheStart();
             ShowFormCashRegisterSystem();
         }
 

@@ -351,7 +351,7 @@ namespace ModernFlatUI
         #endregion
 
         private System.Windows.Forms.DataGridView dataEditWindow;
-        private System.Windows.Forms.Button button3;
+        public System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.TextBox txtName;
         private System.Windows.Forms.TextBox txtAmount;
