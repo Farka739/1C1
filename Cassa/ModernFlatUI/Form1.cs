@@ -26,7 +26,7 @@ namespace ModernFlatUI
         public string exceptword = "Not Availabale";
 
         public DataTable table = new DataTable();
-        DataTable ordertable = new DataTable();
+        readonly DataTable ordertable = new DataTable();
         private void Form1_Load(object sender, EventArgs e)
         {
 
@@ -295,7 +295,7 @@ namespace ModernFlatUI
                     continue;
                 }
 
-                var nameofthefile = dir + "\\" + DateTime.Now.ToString("dd-MM-yyyy-HH-mm-ss", new CultureInfo("en-US")) + ".txt";
+                var nameofthefile = dir + "\\" + DateTime.Now.ToString("dd-MM-yyyy-HH:mm:ss", new CultureInfo("en-US")) + ".txt";
                 using (TextWriter tw = new StreamWriter(nameofthefile))
                 {
                     var grandtotal = "Total: " + FullTotal.Text;

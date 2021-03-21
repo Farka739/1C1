@@ -19,6 +19,8 @@ namespace ModernFlatUI
         private readonly Form _frmDefineTheProduct = new DefineTheProduct() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true};
         private readonly Form _frmProductList = new ProductList() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
         private readonly Form _frmCashRegisterSystem = new Form1() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
+        private readonly Form _frmReports = new Reports() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
+
 
         internal static MainForm Mainform;
 
@@ -59,6 +61,13 @@ namespace ModernFlatUI
             pnlMain.Controls.Add(_frmDefineTheProduct);
             _frmDefineTheProduct.Show();
         }
+
+        public void ShowFormReports()
+        {
+            pnlMain.Controls.Add(_frmReports);
+            _frmReports.Show();
+        }
+
 
         public void ShowFormProductList()
         {
@@ -141,15 +150,21 @@ namespace ModernFlatUI
         private void btnTotalSalesReport_Click(object sender, EventArgs e)
         {
             HideSubMenu();
-            
+            pnlMain.Controls.Clear();
+
+            ShowFormReports();
         }
 
         private void btnTenMostSoldItems_Click(object sender, EventArgs e)
         {
             HideSubMenu();
+            pnlMain.Controls.Clear();
+
+            ShowFormReports();
+
         }
         #endregion
-        
+
         #region ProductMaintenance
         private void btnDefineTheProduct_Click(object sender, EventArgs e)
         {
