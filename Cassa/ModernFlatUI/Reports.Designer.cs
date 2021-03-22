@@ -36,6 +36,8 @@ namespace ModernFlatUI
             this.rtxtbReportContent = new System.Windows.Forms.RichTextBox();
             this.btnMakeTheReport = new System.Windows.Forms.Button();
             this.btnTop10Products = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -50,7 +52,7 @@ namespace ModernFlatUI
             // 
             // txtbStartDate
             // 
-            this.txtbStartDate.Location = new System.Drawing.Point(79, 50);
+            this.txtbStartDate.Location = new System.Drawing.Point(79, 84);
             this.txtbStartDate.MaxLength = 10;
             this.txtbStartDate.Name = "txtbStartDate";
             this.txtbStartDate.Size = new System.Drawing.Size(70, 22);
@@ -59,7 +61,7 @@ namespace ModernFlatUI
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(155, 53);
+            this.label2.Location = new System.Drawing.Point(155, 87);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(13, 17);
             this.label2.TabIndex = 4;
@@ -68,7 +70,7 @@ namespace ModernFlatUI
             // 
             // txtbEndDate
             // 
-            this.txtbEndDate.Location = new System.Drawing.Point(174, 50);
+            this.txtbEndDate.Location = new System.Drawing.Point(174, 84);
             this.txtbEndDate.MaxLength = 10;
             this.txtbEndDate.Name = "txtbEndDate";
             this.txtbEndDate.Size = new System.Drawing.Size(70, 22);
@@ -80,11 +82,11 @@ namespace ModernFlatUI
             this.rtxtbReportContent.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.rtxtbReportContent.Location = new System.Drawing.Point(79, 115);
-            this.rtxtbReportContent.Margin = new System.Windows.Forms.Padding(70, 40, 70, 70);
+            this.rtxtbReportContent.Location = new System.Drawing.Point(79, 144);
+            this.rtxtbReportContent.Margin = new System.Windows.Forms.Padding(70, 40, 70, 40);
             this.rtxtbReportContent.Name = "rtxtbReportContent";
             this.rtxtbReportContent.ReadOnly = true;
-            this.rtxtbReportContent.Size = new System.Drawing.Size(791, 289);
+            this.rtxtbReportContent.Size = new System.Drawing.Size(791, 290);
             this.rtxtbReportContent.TabIndex = 3;
             this.rtxtbReportContent.Text = "";
             // 
@@ -116,11 +118,31 @@ namespace ModernFlatUI
             this.btnTop10Products.Text = "Top 10 Products";
             this.btnTop10Products.UseVisualStyleBackColor = true;
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(76, 58);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(42, 17);
+            this.label3.TabIndex = 9;
+            this.label3.Text = "Start:";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(171, 58);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(37, 17);
+            this.label4.TabIndex = 10;
+            this.label4.Text = "End:";
+            // 
             // Reports
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(949, 566);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.btnTop10Products);
             this.Controls.Add(this.btnMakeTheReport);
             this.Controls.Add(this.txtbEndDate);
@@ -145,5 +167,7 @@ namespace ModernFlatUI
         private System.Windows.Forms.RichTextBox rtxtbReportContent;
         public System.Windows.Forms.Button btnMakeTheReport;
         public System.Windows.Forms.Button btnTop10Products;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
     }
 }

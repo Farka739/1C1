@@ -295,11 +295,13 @@ namespace ModernFlatUI
                     continue;
                 }
 
-                var nameofthefile = dir + "\\" + DateTime.Now.ToString("dd-MM-yyyy-HH:mm:ss", new CultureInfo("en-US")) + ".txt";
+                var nameofthefile = dir + "\\" + DateTime.Now.ToString("dd-MM-yyyy-HH-mm-ss", new CultureInfo("en-US")) + ".txt";
                 using (TextWriter tw = new StreamWriter(nameofthefile))
                 {
-                    var grandtotal = "Total: " + FullTotal.Text;
+                    var grandtotal = "Total: " + FullTotal.Text; 
+                    var idOfTheFile = Directory.GetFiles(dir).Length;
                     tw.WriteLine(grandtotal);
+                    tw.WriteLine(idOfTheFile);
                     const string instruction = "The information below is NAME | PRICE | AMOUNT | ID NUMBER IN THE TABLE";
                     tw.WriteLine(instruction);
                     for (var i = 0; i < dataOrderWindow.Rows.Count; i++)
