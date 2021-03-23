@@ -197,10 +197,6 @@ namespace ModernFlatUI
                 btnMakeTheReport.Enabled = false;
             if (txtbEndDate.Text.Length == 10 && txtbEndDate.Text[3] == '1' && txtbEndDate.Text[4] - '0' >= 3)
                 btnMakeTheReport.Enabled = false;
-            if (txtbStartDate.Text.Length == 10 && txtbEndDate.Text.Length == 10 && (txtbStartDate.Text[6] - '0' > txtbEndDate.Text[6] - '0'))
-                btnMakeTheReport.Enabled = false;
-            if (txtbEndDate.Text.Length == 10 && txtbEndDate.Text[3] == '1' && txtbEndDate.Text[4] - '0' >= 3)
-                btnMakeTheReport.Enabled = false;
         }
     }
 }
