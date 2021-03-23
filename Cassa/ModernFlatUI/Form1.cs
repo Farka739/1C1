@@ -9,6 +9,9 @@ namespace ModernFlatUI
 {
     public partial class Form1 : Form
     {
+
+        public static string PathTop10ProductsFile = Environment.CurrentDirectory + "\\Reports\\Top10Products.txt";
+
         internal static Form1 FrmForm1;
 
         public Form1()
@@ -205,6 +208,41 @@ namespace ModernFlatUI
 
         }
 
+        private void AddToTop10Products()
+        {
+            var lineToEdit = 0; 
+            for (var i = 0; i < dataOrderWindow.RowCount; i++)
+            {
+                var amountOfTheProduct = dataOrderWindow.Rows[i].Cells[2].Value.ToString();
+                foreach (var line in File.ReadAllLines(PathTop10ProductsFile))
+                {
+                    var nameOfTheProductToCompare = line.Split('/')[0];
+                    var amountOfTheProductInTop10 = line.Split('/')[1];
+                    if (nameOfTheProductToCompare == dataOrderWindow.Rows[i].Cells[0].Value.ToString())
+                    {
+                        var lines = File.ReadAllLines(PathTop10ProductsFile);
+
+                        using (var writer = new StreamWriter(PathTop10ProductsFile))
+                        {
+                            for (var currentLine = 0; currentLine < lines.Length; currentLine++)
+                            {
+                                if (currentLine == lineToEdit)
+                                {
+                                    writer.WriteLine(nameOfTheProductToCompare + '/' + (int.Parse(amountOfTheProductInTop10) + int.Parse(amountOfTheProduct)).ToString());
+                                    lineToEdit = 0;
+                                }
+                                else
+                                {
+                                    writer.WriteLine(lines[currentLine]);
+                                }
+                            }
+                        }
+                    }
+                    lineToEdit++;
+                }
+            }
+        }
+
 
         private string GetTheOrder()
         {
@@ -352,6 +390,9 @@ namespace ModernFlatUI
                         File.WriteAllText(@"NewProductList.txt", string.Join("\n", pathNewProductFileLines));
                     }
                 }
+
+                if (fakevar != 1)
+                    AddToTop10Products();
 
                 File.Copy(pathNewProductFile, pathOldProductFile, true);
                 fakevar++;
