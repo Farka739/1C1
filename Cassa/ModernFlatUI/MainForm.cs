@@ -11,6 +11,7 @@ using System.Windows.Forms;
 using static ModernFlatUI.ProductList;
 using static ModernFlatUI.DefineTheProduct;
 using static ModernFlatUI.Form1;
+using static ModernFlatUI.Reports;
 
 namespace ModernFlatUI
 {
@@ -151,6 +152,12 @@ namespace ModernFlatUI
         {
             HideSubMenu();
             pnlMain.Controls.Clear();
+            FrmReports.txtbStartDate.Enabled = true;
+            FrmReports.txtbEndDate.Enabled = true;
+            FrmReports.txtbStartDate.Text = "";
+            FrmReports.txtbEndDate.Text = "";
+            FrmReports.rtxtbReportContent.Text = "";
+            FrmReports.btnTop10Products.Enabled = false;
 
             ShowFormReports();
         }
@@ -159,6 +166,13 @@ namespace ModernFlatUI
         {
             HideSubMenu();
             pnlMain.Controls.Clear();
+            FrmReports.txtbStartDate.Enabled = false;
+            FrmReports.txtbEndDate.Enabled = false;
+            FrmReports.txtbStartDate.Text = "";
+            FrmReports.txtbEndDate.Text = "";
+            FrmReports.rtxtbReportContent.Text = "";
+            FrmReports.btnTop10Products.Enabled = false;
+            FrmReports.GetTop10();
 
             ShowFormReports();
 

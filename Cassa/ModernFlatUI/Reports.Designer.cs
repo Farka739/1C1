@@ -38,6 +38,7 @@ namespace ModernFlatUI
             this.btnTop10Products = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.btnRefresh = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -117,6 +118,7 @@ namespace ModernFlatUI
             this.btnTop10Products.TabIndex = 8;
             this.btnTop10Products.Text = "Top 10 Products";
             this.btnTop10Products.UseVisualStyleBackColor = true;
+            this.btnTop10Products.Click += new System.EventHandler(this.btnTop10Products_Click);
             // 
             // label3
             // 
@@ -136,11 +138,26 @@ namespace ModernFlatUI
             this.label4.TabIndex = 10;
             this.label4.Text = "End:";
             // 
+            // btnRefresh
+            // 
+            this.btnRefresh.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnRefresh.Location = new System.Drawing.Point(408, 477);
+            this.btnRefresh.Margin = new System.Windows.Forms.Padding(3, 3, 3, 40);
+            this.btnRefresh.MaximumSize = new System.Drawing.Size(150, 40);
+            this.btnRefresh.MinimumSize = new System.Drawing.Size(150, 40);
+            this.btnRefresh.Name = "btnRefresh";
+            this.btnRefresh.Size = new System.Drawing.Size(150, 40);
+            this.btnRefresh.TabIndex = 11;
+            this.btnRefresh.Text = "Refresh";
+            this.btnRefresh.UseVisualStyleBackColor = true;
+            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
+            // 
             // Reports
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(949, 566);
+            this.Controls.Add(this.btnRefresh);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.btnTop10Products);
@@ -161,13 +178,14 @@ namespace ModernFlatUI
 
         #endregion
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox txtbStartDate;
+        public System.Windows.Forms.TextBox txtbStartDate;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox txtbEndDate;
-        private System.Windows.Forms.RichTextBox rtxtbReportContent;
+        public System.Windows.Forms.TextBox txtbEndDate;
+        public System.Windows.Forms.RichTextBox rtxtbReportContent;
         public System.Windows.Forms.Button btnMakeTheReport;
         public System.Windows.Forms.Button btnTop10Products;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
+        public System.Windows.Forms.Button btnRefresh;
     }
 }

@@ -10,7 +10,7 @@ namespace ModernFlatUI
     public partial class Form1 : Form
     {
 
-        public static string PathTop10ProductsFile = Environment.CurrentDirectory + "\\Reports\\Top10Products.txt";
+        public static string PathTop10ProductsFile = Environment.CurrentDirectory + "\\Reports\\Top10\\Top10Products.txt";
 
         internal static Form1 FrmForm1;
 
@@ -240,6 +240,8 @@ namespace ModernFlatUI
                     }
                     lineToEdit++;
                 }
+
+                lineToEdit = 0;
             }
         }
 
@@ -337,9 +339,9 @@ namespace ModernFlatUI
                 using (TextWriter tw = new StreamWriter(nameofthefile))
                 {
                     var grandtotal = "Total: " + FullTotal.Text; 
-                    var idOfTheFile = Directory.GetFiles(dir).Length;
+                    //var idOfTheFile = Directory.GetFiles(dir).Length;
                     tw.WriteLine(grandtotal);
-                    tw.WriteLine(idOfTheFile);
+                    //tw.WriteLine(idOfTheFile);
                     const string instruction = "The information below is NAME | PRICE | AMOUNT | ID NUMBER IN THE TABLE";
                     tw.WriteLine(instruction);
                     for (var i = 0; i < dataOrderWindow.Rows.Count; i++)

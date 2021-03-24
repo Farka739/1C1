@@ -18,6 +18,10 @@ namespace ModernFlatUI
         public static string Path = Environment.CurrentDirectory + "\\Receipts";
         public static string ReportsFolderPath = Environment.CurrentDirectory + "\\Reports";
         public static string ReportPath = Environment.CurrentDirectory + "\\Report.txt";
+        public static string PathTop10ProductsFile = Environment.CurrentDirectory + "\\Reports\\Top10\\Top10Products.txt";
+        public static string PathTop10ProductsFolder = Environment.CurrentDirectory + "\\Reports\\Top10";
+
+        internal static Reports FrmReports;
 
         //string line = File.ReadLines(Path + "\\20-03-2021-17-06-55.txt").Skip(2).Take(1).First();
         private int _counter = 1; 
@@ -25,6 +29,7 @@ namespace ModernFlatUI
         public Reports()
         {
             InitializeComponent();
+            FrmReports = this;
         }
 
         private void Reports_Load(object sender, EventArgs e)
@@ -62,7 +67,7 @@ namespace ModernFlatUI
             Directory.GetFiles(Path).Select(f => new FileInfo(f)).OrderBy(f => f.CreationTime);
             File.Copy( Path + "\\" + startFile, ReportPath, true);
             var allReportLines = File.ReadAllLines(ReportPath).ToList();
-            allReportLines.Insert(2, startDate);
+            allReportLines.Insert(2, startFile.Remove(19));
 
            /* using (var reportFile = File.AppendText(Path + "\\Report.txt"))
             using (var initialFile = new StreamReader(Path + $"\\{startFile}"))
@@ -97,7 +102,7 @@ namespace ModernFlatUI
                         var checkToWriteDataCounter = _counter + 1;
                         if (NextFile(Path, ref _counter) != NextFile(Path, ref checkToWriteDataCounter))
                         {
-                            allReportLines.Add(NextFile(Path, ref _counter).Substring(Path.Length + 1).Remove(10));
+                            allReportLines.Add(NextFile(Path, ref _counter).Substring(Path.Length + 1).Remove(19));
                         }
                     }
 
@@ -197,6 +202,58 @@ namespace ModernFlatUI
                 btnMakeTheReport.Enabled = false;
             if (txtbEndDate.Text.Length == 10 && txtbEndDate.Text[3] == '1' && txtbEndDate.Text[4] - '0' >= 3)
                 btnMakeTheReport.Enabled = false;
+        }
+
+        public void GetTop10()
+        {
+            var top10 = File.ReadAllLines(PathTop10ProductsFile);
+            for (var j = 0; j <= top10.Length - 2; j++)
+            {
+                for (var i = 0; i <= top10.Length - 2; i++)
+                {
+                    if (int.Parse(top10[i].Split('/')[1]) >= int.Parse(top10[i + 1].Split('/')[1])) continue;
+                    var temp = top10[i + 1];
+                    top10[i + 1] = top10[i];
+                    top10[i] = temp;
+                }
+            }
+            var nameofthefile = PathTop10ProductsFolder + "\\" + DateTime.Now.ToString("dd-MM-yyyy-HH-mm-ss", new CultureInfo("en-US")) + ".txt";
+            using (TextWriter tw = new StreamWriter(nameofthefile))
+            {
+                for (var i = 0; i < 10; i++)
+                {
+                    tw.WriteLine(top10[i]);
+                }
+
+            }
+
+            for (var i = 0; i < 10; i++)
+            {
+                rtxtbReportContent.AppendText(top10[i] + "\r\n");
+            }
+
+        }
+
+        private void btnTop10Products_Click(object sender, EventArgs e)
+        {
+            GetTop10();
+            txtbStartDate.Text = "";
+            txtbStartDate.Enabled = true;
+            txtbEndDate.Text = "";
+            txtbEndDate.Enabled = true;
+            btnTop10Products.Enabled = false;
+
+        }
+
+        private void btnRefresh_Click(object sender, EventArgs e)
+        {
+            txtbStartDate.Text = "";
+            txtbStartDate.Enabled = true;
+            txtbEndDate.Text = "";
+            txtbEndDate.Enabled = true;
+            btnTop10Products.Enabled = true;
+            rtxtbReportContent.Text = "";
+
         }
     }
 }
