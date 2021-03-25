@@ -257,6 +257,7 @@ namespace ModernFlatUI
             this.dataOrderWindow.Size = new System.Drawing.Size(290, 115);
             this.dataOrderWindow.TabIndex = 12;
             this.dataOrderWindow.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            this.dataOrderWindow.SelectionChanged += new System.EventHandler(this.dataOrderWindow_SelectionChanged);
             // 
             // label4
             // 
