@@ -39,6 +39,9 @@ namespace ModernFlatUI
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.btnRefresh = new System.Windows.Forms.Button();
+            this.treeView1 = new System.Windows.Forms.TreeView();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.monthCalendar1 = new System.Windows.Forms.MonthCalendar();
             this.SuspendLayout();
             // 
             // label1
@@ -152,11 +155,35 @@ namespace ModernFlatUI
             this.btnRefresh.UseVisualStyleBackColor = true;
             this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
             // 
+            // treeView1
+            // 
+            this.treeView1.Location = new System.Drawing.Point(251, 84);
+            this.treeView1.Name = "treeView1";
+            this.treeView1.Size = new System.Drawing.Size(121, 21);
+            this.treeView1.TabIndex = 12;
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(456, 84);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(121, 24);
+            this.comboBox1.TabIndex = 13;
+            // 
+            // monthCalendar1
+            // 
+            this.monthCalendar1.Location = new System.Drawing.Point(655, 71);
+            this.monthCalendar1.Name = "monthCalendar1";
+            this.monthCalendar1.TabIndex = 14;
+            // 
             // Reports
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(949, 566);
+            this.Controls.Add(this.monthCalendar1);
+            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.treeView1);
             this.Controls.Add(this.btnRefresh);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
@@ -187,5 +214,8 @@ namespace ModernFlatUI
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         public System.Windows.Forms.Button btnRefresh;
+        private System.Windows.Forms.TreeView treeView1;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.MonthCalendar monthCalendar1;
     }
 }
