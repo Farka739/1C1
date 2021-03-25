@@ -29,226 +29,339 @@ namespace ModernFlatUI
         /// </summary>
         private void InitializeComponent()
         {
-            this.pnlSubMenu = new System.Windows.Forms.Panel();
-            this.pnlProductMaintenance = new System.Windows.Forms.Panel();
-            this.btnListOfProducts = new System.Windows.Forms.Button();
-            this.btnDefineTheProduct = new System.Windows.Forms.Button();
-            this.btnProductMaintenance = new System.Windows.Forms.Button();
-            this.pnlReports = new System.Windows.Forms.Panel();
-            this.btnTenMostSoldItems = new System.Windows.Forms.Button();
-            this.btnTotalSalesReport = new System.Windows.Forms.Button();
-            this.btnReports = new System.Windows.Forms.Button();
-            this.btnCashRegister = new System.Windows.Forms.Button();
-            this.logoPanel = new System.Windows.Forms.Panel();
-            this.pnlMain = new System.Windows.Forms.Panel();
-            this.pnlSubMenu.SuspendLayout();
-            this.pnlProductMaintenance.SuspendLayout();
-            this.pnlReports.SuspendLayout();
+            this.dataEditWindow = new System.Windows.Forms.DataGridView();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
+            this.txtName = new System.Windows.Forms.TextBox();
+            this.txtAmount = new System.Windows.Forms.TextBox();
+            this.txtPrice = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.button2 = new System.Windows.Forms.Button();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.total = new System.Windows.Forms.TextBox();
+            this.dataOrderWindow = new System.Windows.Forms.DataGridView();
+            this.label4 = new System.Windows.Forms.Label();
+            this.button4 = new System.Windows.Forms.Button();
+            this.FullTotal = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.dataEditWindow)).BeginInit();
+            this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataOrderWindow)).BeginInit();
             this.SuspendLayout();
             // 
-            // pnlSubMenu
+            // dataEditWindow
             // 
-            this.pnlSubMenu.AutoScroll = true;
-            this.pnlSubMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(7)))), ((int)(((byte)(17)))));
-            this.pnlSubMenu.Controls.Add(this.pnlProductMaintenance);
-            this.pnlSubMenu.Controls.Add(this.btnProductMaintenance);
-            this.pnlSubMenu.Controls.Add(this.pnlReports);
-            this.pnlSubMenu.Controls.Add(this.btnReports);
-            this.pnlSubMenu.Controls.Add(this.btnCashRegister);
-            this.pnlSubMenu.Controls.Add(this.logoPanel);
-            this.pnlSubMenu.Dock = System.Windows.Forms.DockStyle.Left;
-            this.pnlSubMenu.Location = new System.Drawing.Point(0, 0);
-            this.pnlSubMenu.Name = "pnlSubMenu";
-            this.pnlSubMenu.Size = new System.Drawing.Size(217, 620);
-            this.pnlSubMenu.TabIndex = 0;
+            this.dataEditWindow.AllowUserToAddRows = false;
+            this.dataEditWindow.AllowUserToDeleteRows = false;
+            this.dataEditWindow.AllowUserToResizeColumns = false;
+            this.dataEditWindow.AllowUserToResizeRows = false;
+            this.dataEditWindow.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataEditWindow.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataEditWindow.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataEditWindow.Location = new System.Drawing.Point(12, 12);
+            this.dataEditWindow.MultiSelect = false;
+            this.dataEditWindow.Name = "dataEditWindow";
+            this.dataEditWindow.ReadOnly = true;
+            this.dataEditWindow.RowHeadersVisible = false;
+            this.dataEditWindow.RowHeadersWidth = 51;
+            this.dataEditWindow.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.dataEditWindow.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataEditWindow.Size = new System.Drawing.Size(556, 355);
+            this.dataEditWindow.TabIndex = 0;
+            this.dataEditWindow.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataEditWindow_CellContentClick);
+            this.dataEditWindow.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataEditWindow_CellMouseClick);
             // 
-            // pnlProductMaintenance
+            // button1
             // 
-            this.pnlProductMaintenance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(32)))), ((int)(((byte)(39)))));
-            this.pnlProductMaintenance.Controls.Add(this.btnListOfProducts);
-            this.pnlProductMaintenance.Controls.Add(this.btnDefineTheProduct);
-            this.pnlProductMaintenance.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnlProductMaintenance.Location = new System.Drawing.Point(0, 233);
-            this.pnlProductMaintenance.Name = "pnlProductMaintenance";
-            this.pnlProductMaintenance.Size = new System.Drawing.Size(217, 82);
-            this.pnlProductMaintenance.TabIndex = 6;
+            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.button1.BackColor = System.Drawing.Color.OliveDrab;
+            this.button1.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(768, 384);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(97, 54);
+            this.button1.TabIndex = 1;
+            this.button1.Text = "BUY";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // btnListOfProducts
+            // button3
             // 
-            this.btnListOfProducts.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnListOfProducts.FlatAppearance.BorderSize = 0;
-            this.btnListOfProducts.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnListOfProducts.ForeColor = System.Drawing.Color.LightGray;
-            this.btnListOfProducts.Location = new System.Drawing.Point(0, 40);
-            this.btnListOfProducts.Name = "btnListOfProducts";
-            this.btnListOfProducts.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
-            this.btnListOfProducts.Size = new System.Drawing.Size(217, 40);
-            this.btnListOfProducts.TabIndex = 1;
-            this.btnListOfProducts.Text = "List of products";
-            this.btnListOfProducts.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnListOfProducts.UseVisualStyleBackColor = true;
-            this.btnListOfProducts.Click += new System.EventHandler(this.btnListOfProducts_Click);
+            this.button3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.button3.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button3.Location = new System.Drawing.Point(12, 384);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(409, 54);
+            this.button3.TabIndex = 3;
+            this.button3.Text = "LOAD DATA";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
-            // btnDefineTheProduct
+            // txtName
             // 
-            this.btnDefineTheProduct.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnDefineTheProduct.FlatAppearance.BorderSize = 0;
-            this.btnDefineTheProduct.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDefineTheProduct.ForeColor = System.Drawing.Color.LightGray;
-            this.btnDefineTheProduct.Location = new System.Drawing.Point(0, 0);
-            this.btnDefineTheProduct.Name = "btnDefineTheProduct";
-            this.btnDefineTheProduct.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
-            this.btnDefineTheProduct.Size = new System.Drawing.Size(217, 40);
-            this.btnDefineTheProduct.TabIndex = 0;
-            this.btnDefineTheProduct.Text = "Define the product";
-            this.btnDefineTheProduct.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnDefineTheProduct.UseVisualStyleBackColor = true;
-            this.btnDefineTheProduct.Click += new System.EventHandler(this.btnDefineTheProduct_Click);
+            this.txtName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtName.Location = new System.Drawing.Point(624, 37);
+            this.txtName.Name = "txtName";
+            this.txtName.ReadOnly = true;
+            this.txtName.Size = new System.Drawing.Size(241, 20);
+            this.txtName.TabIndex = 4;
             // 
-            // btnProductMaintenance
+            // txtAmount
             // 
-            this.btnProductMaintenance.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnProductMaintenance.FlatAppearance.BorderSize = 0;
-            this.btnProductMaintenance.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnProductMaintenance.ForeColor = System.Drawing.Color.Gainsboro;
-            this.btnProductMaintenance.Location = new System.Drawing.Point(0, 188);
-            this.btnProductMaintenance.Name = "btnProductMaintenance";
-            this.btnProductMaintenance.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.btnProductMaintenance.Size = new System.Drawing.Size(217, 45);
-            this.btnProductMaintenance.TabIndex = 5;
-            this.btnProductMaintenance.Text = "Product Maintenance";
-            this.btnProductMaintenance.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnProductMaintenance.UseVisualStyleBackColor = true;
-            this.btnProductMaintenance.Click += new System.EventHandler(this.btnProductMaintenance_Click);
+            this.txtAmount.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtAmount.Location = new System.Drawing.Point(737, 89);
+            this.txtAmount.Name = "txtAmount";
+            this.txtAmount.ReadOnly = true;
+            this.txtAmount.Size = new System.Drawing.Size(128, 20);
+            this.txtAmount.TabIndex = 5;
             // 
-            // pnlReports
+            // txtPrice
             // 
-            this.pnlReports.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(32)))), ((int)(((byte)(39)))));
-            this.pnlReports.Controls.Add(this.btnTenMostSoldItems);
-            this.pnlReports.Controls.Add(this.btnTotalSalesReport);
-            this.pnlReports.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnlReports.Location = new System.Drawing.Point(0, 106);
-            this.pnlReports.Name = "pnlReports";
-            this.pnlReports.Size = new System.Drawing.Size(217, 82);
-            this.pnlReports.TabIndex = 4;
+            this.txtPrice.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtPrice.Location = new System.Drawing.Point(737, 63);
+            this.txtPrice.Name = "txtPrice";
+            this.txtPrice.ReadOnly = true;
+            this.txtPrice.Size = new System.Drawing.Size(128, 20);
+            this.txtPrice.TabIndex = 6;
             // 
-            // btnTenMostSoldItems
+            // label1
             // 
-            this.btnTenMostSoldItems.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnTenMostSoldItems.FlatAppearance.BorderSize = 0;
-            this.btnTenMostSoldItems.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnTenMostSoldItems.ForeColor = System.Drawing.Color.LightGray;
-            this.btnTenMostSoldItems.Location = new System.Drawing.Point(0, 40);
-            this.btnTenMostSoldItems.Name = "btnTenMostSoldItems";
-            this.btnTenMostSoldItems.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
-            this.btnTenMostSoldItems.Size = new System.Drawing.Size(217, 40);
-            this.btnTenMostSoldItems.TabIndex = 1;
-            this.btnTenMostSoldItems.Text = "10 most sold items";
-            this.btnTenMostSoldItems.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnTenMostSoldItems.UseVisualStyleBackColor = true;
-            this.btnTenMostSoldItems.Click += new System.EventHandler(this.btnTenMostSoldItems_Click);
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(583, 40);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(35, 13);
+            this.label1.TabIndex = 7;
+            this.label1.Text = "Name";
             // 
-            // btnTotalSalesReport
+            // label2
             // 
-            this.btnTotalSalesReport.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnTotalSalesReport.FlatAppearance.BorderSize = 0;
-            this.btnTotalSalesReport.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnTotalSalesReport.ForeColor = System.Drawing.Color.LightGray;
-            this.btnTotalSalesReport.Location = new System.Drawing.Point(0, 0);
-            this.btnTotalSalesReport.Name = "btnTotalSalesReport";
-            this.btnTotalSalesReport.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
-            this.btnTotalSalesReport.Size = new System.Drawing.Size(217, 40);
-            this.btnTotalSalesReport.TabIndex = 0;
-            this.btnTotalSalesReport.Text = "Total sales report";
-            this.btnTotalSalesReport.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnTotalSalesReport.UseVisualStyleBackColor = true;
-            this.btnTotalSalesReport.Click += new System.EventHandler(this.btnTotalSalesReport_Click);
+            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(700, 66);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(31, 13);
+            this.label2.TabIndex = 8;
+            this.label2.Text = "Price";
             // 
-            // btnReports
+            // label3
             // 
-            this.btnReports.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnReports.FlatAppearance.BorderSize = 0;
-            this.btnReports.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnReports.ForeColor = System.Drawing.Color.Gainsboro;
-            this.btnReports.Location = new System.Drawing.Point(0, 61);
-            this.btnReports.Name = "btnReports";
-            this.btnReports.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.btnReports.Size = new System.Drawing.Size(217, 45);
-            this.btnReports.TabIndex = 3;
-            this.btnReports.Text = "Reports";
-            this.btnReports.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnReports.UseVisualStyleBackColor = true;
-            this.btnReports.Click += new System.EventHandler(this.btnReports_Click);
+            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(643, 92);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(88, 13);
+            this.label3.TabIndex = 9;
+            this.label3.Text = "Available amount";
             // 
-            // btnCashRegister
+            // button2
             // 
-            this.btnCashRegister.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnCashRegister.FlatAppearance.BorderSize = 0;
-            this.btnCashRegister.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCashRegister.ForeColor = System.Drawing.Color.Gainsboro;
-            this.btnCashRegister.Location = new System.Drawing.Point(0, 16);
-            this.btnCashRegister.Name = "btnCashRegister";
-            this.btnCashRegister.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.btnCashRegister.Size = new System.Drawing.Size(217, 45);
-            this.btnCashRegister.TabIndex = 1;
-            this.btnCashRegister.Text = "Cash Register";
-            this.btnCashRegister.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCashRegister.UseVisualStyleBackColor = true;
-            this.btnCashRegister.Click += new System.EventHandler(this.btnCashRegister_Click);
+            this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.button2.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.Location = new System.Drawing.Point(574, 384);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(188, 54);
+            this.button2.TabIndex = 10;
+            this.button2.Text = "ADD TO BASKET";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
-            // logoPanel
+            // groupBox1
             // 
-            this.logoPanel.Dock = System.Windows.Forms.DockStyle.Top;
-            this.logoPanel.Location = new System.Drawing.Point(0, 0);
-            this.logoPanel.Name = "logoPanel";
-            this.logoPanel.Size = new System.Drawing.Size(217, 16);
-            this.logoPanel.TabIndex = 0;
+            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox1.Controls.Add(this.textBox1);
+            this.groupBox1.Controls.Add(this.label6);
+            this.groupBox1.Controls.Add(this.label5);
+            this.groupBox1.Controls.Add(this.total);
+            this.groupBox1.Location = new System.Drawing.Point(574, 116);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(291, 115);
+            this.groupBox1.TabIndex = 11;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Order";
             // 
-            // pnlMain
+            // textBox1
             // 
-            this.pnlMain.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(111)))), ((int)(((byte)(75)))), ((int)(((byte)(165)))));
-            this.pnlMain.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlMain.Location = new System.Drawing.Point(217, 0);
-            this.pnlMain.Name = "pnlMain";
-            this.pnlMain.Size = new System.Drawing.Size(788, 620);
-            this.pnlMain.TabIndex = 1;
-            this.pnlMain.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlMain_Paint);
+            this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBox1.Location = new System.Drawing.Point(163, 31);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(125, 20);
+            this.textBox1.TabIndex = 4;
+            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged_1);
+            this.textBox1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox1_KeyPress);
+            // 
+            // label6
+            // 
+            this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(123, 72);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(34, 13);
+            this.label6.TabIndex = 3;
+            this.label6.Text = "Total:";
+            // 
+            // label5
+            // 
+            this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(69, 34);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(84, 13);
+            this.label5.TabIndex = 2;
+            this.label5.Text = "Choose amount:";
+            // 
+            // total
+            // 
+            this.total.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.total.Location = new System.Drawing.Point(163, 69);
+            this.total.Name = "total";
+            this.total.ReadOnly = true;
+            this.total.Size = new System.Drawing.Size(125, 20);
+            this.total.TabIndex = 1;
+            this.total.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            // 
+            // dataOrderWindow
+            // 
+            this.dataOrderWindow.AllowUserToAddRows = false;
+            this.dataOrderWindow.AllowUserToDeleteRows = false;
+            this.dataOrderWindow.AllowUserToResizeColumns = false;
+            this.dataOrderWindow.AllowUserToResizeRows = false;
+            this.dataOrderWindow.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataOrderWindow.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataOrderWindow.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataOrderWindow.Location = new System.Drawing.Point(574, 252);
+            this.dataOrderWindow.MultiSelect = false;
+            this.dataOrderWindow.Name = "dataOrderWindow";
+            this.dataOrderWindow.ReadOnly = true;
+            this.dataOrderWindow.RowHeadersVisible = false;
+            this.dataOrderWindow.RowHeadersWidth = 51;
+            this.dataOrderWindow.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.dataOrderWindow.Size = new System.Drawing.Size(290, 115);
+            this.dataOrderWindow.TabIndex = 12;
+            this.dataOrderWindow.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            this.dataOrderWindow.SelectionChanged += new System.EventHandler(this.dataOrderWindow_SelectionChanged);
+            // 
+            // label4
+            // 
+            this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(583, 234);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(40, 13);
+            this.label4.TabIndex = 13;
+            this.label4.Text = "Basket";
+            this.label4.Click += new System.EventHandler(this.label4_Click);
+            // 
+            // button4
+            // 
+            this.button4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.button4.BackColor = System.Drawing.Color.Maroon;
+            this.button4.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button4.Location = new System.Drawing.Point(424, 384);
+            this.button4.Margin = new System.Windows.Forms.Padding(0);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(144, 54);
+            this.button4.TabIndex = 14;
+            this.button4.Text = "CLEAR BASKET";
+            this.button4.UseVisualStyleBackColor = false;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
+            // FullTotal
+            // 
+            this.FullTotal.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.FullTotal.Location = new System.Drawing.Point(737, 358);
+            this.FullTotal.Name = "FullTotal";
+            this.FullTotal.ReadOnly = true;
+            this.FullTotal.Size = new System.Drawing.Size(127, 20);
+            this.FullTotal.TabIndex = 5;
+            // 
+            // label7
+            // 
+            this.label7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(703, 361);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(34, 13);
+            this.label7.TabIndex = 5;
+            this.label7.Text = "Total:";
+            this.label7.Click += new System.EventHandler(this.label7_Click);
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1005, 620);
-            this.Controls.Add(this.pnlMain);
-            this.Controls.Add(this.pnlSubMenu);
-            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.Margin = new System.Windows.Forms.Padding(4);
-            this.MinimumSize = new System.Drawing.Size(950, 600);
+            this.ClientSize = new System.Drawing.Size(877, 450);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.FullTotal);
+            this.Controls.Add(this.button4);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.dataOrderWindow);
+            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.txtPrice);
+            this.Controls.Add(this.txtAmount);
+            this.Controls.Add(this.txtName);
+            this.Controls.Add(this.button3);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.dataEditWindow);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.MinimumSize = new System.Drawing.Size(375, 406);
             this.Name = "Form1";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
-            this.pnlSubMenu.ResumeLayout(false);
-            this.pnlProductMaintenance.ResumeLayout(false);
-            this.pnlReports.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataEditWindow)).EndInit();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataOrderWindow)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Panel pnlSubMenu;
-        private System.Windows.Forms.Button btnCashRegister;
-        private System.Windows.Forms.Panel logoPanel;
-        public System.Windows.Forms.Panel pnlProductMaintenance;
-        private System.Windows.Forms.Button btnListOfProducts;
-        private System.Windows.Forms.Button btnDefineTheProduct;
-        private System.Windows.Forms.Button btnProductMaintenance;
-        public System.Windows.Forms.Panel pnlReports;
-        private System.Windows.Forms.Button btnTenMostSoldItems;
-        private System.Windows.Forms.Button btnTotalSalesReport;
-        private System.Windows.Forms.Button btnReports;
-        public System.Windows.Forms.Panel pnlMain;
+        private System.Windows.Forms.DataGridView dataEditWindow;
+        public System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TextBox txtName;
+        private System.Windows.Forms.TextBox txtAmount;
+        private System.Windows.Forms.TextBox txtPrice;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.DataGridView dataOrderWindow;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox total;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.TextBox FullTotal;
+        private System.Windows.Forms.Label label7;
     }
 }
 

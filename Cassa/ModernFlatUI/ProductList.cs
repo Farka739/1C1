@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
 using static ModernFlatUI.DefineTheProduct;
-using static ModernFlatUI.Form1;
+using static ModernFlatUI.MainForm;
 
 namespace ModernFlatUI
 {
@@ -18,7 +18,7 @@ namespace ModernFlatUI
     public partial class ProductList : Form
     {
 
-        public string Path = Environment.CurrentDirectory + "\\ProductList.txt";
+        public string Path = Environment.CurrentDirectory + "\\OldProductList.txt";
         public string TempPath = Environment.CurrentDirectory + "\\TempFile.txt";
 
         internal static ProductList FrmProductList;
@@ -42,7 +42,7 @@ namespace ModernFlatUI
 
         public readonly List<Product> products = new List<Product>();
 
-        private void GetTheProductInfo()
+        public void GetTheProductInfo()
         {
             var lines = File.ReadAllLines(Path);
             foreach (var line in lines)
@@ -154,8 +154,8 @@ namespace ModernFlatUI
             FrmDefineTheProduct.ClearTheInfoInDefineTheProduct();
             FrmDefineTheProduct.btnAddTheProduct.Enabled = true;
             FrmDefineTheProduct.btnChangeTheProductInfo.Enabled = false;
-            Form1.form1.pnlMain.Controls.Clear();
-            Form1.form1.ShowFormDefineTheProduct();
+            MainForm.Mainform.pnlMain.Controls.Clear();
+            MainForm.Mainform.ShowFormDefineTheProduct();
         }
 
        
@@ -169,8 +169,8 @@ namespace ModernFlatUI
             DefineTheProduct.FrmDefineTheProduct.txtbDescription.Text = newLine.Description.Replace(@"\n", "\r\n"); ;
             DefineTheProduct.FrmDefineTheProduct.btnChangeTheProductInfo.Enabled = true;
             DefineTheProduct.FrmDefineTheProduct.btnAddTheProduct.Enabled = false;
-            Form1.form1.pnlMain.Controls.Clear();
-            Form1.form1.ShowFormDefineTheProduct();
+            MainForm.Mainform.pnlMain.Controls.Clear();
+            MainForm.Mainform.ShowFormDefineTheProduct();
             
         }
     }
