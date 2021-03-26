@@ -74,12 +74,12 @@ namespace ModernFlatUI
         private void ProductList_Load(object sender, EventArgs e)
         {
             dgvProductList.AllowUserToAddRows = false;
-            GetTheProductInfo();
+            /*GetTheProductInfo();
            
             for (var i = 0; i < products.Count; i++)
             {
                 dgvProductList.Rows.Add(products[i].Name, products[i].Price, products[i].Quantity, products[i].Description);
-            }
+            }*/
         }
 
 
@@ -144,7 +144,8 @@ namespace ModernFlatUI
             fullDescription.Left = (dgvProductList.Width - fullDescription.Width) / 2;
             fullDescription.Top = (dgvProductList.Height - fullDescription.Height) / 2;
             dgvProductList.Controls.Add(fullDescription);*/
-           MessageBox.Show(dgvProductList.CurrentCell.Value.ToString().Replace(@"\n", "\r\n"));
+           MessageBox.Show((dgvProductList.CurrentRow.Cells[0].Value.ToString() + @"\n" + dgvProductList.CurrentRow.Cells[1].Value.ToString() 
+                            + @"\n" + dgvProductList.CurrentRow.Cells[2].Value.ToString() + @"\n" + dgvProductList.CurrentRow.Cells[3].Value.ToString()).Replace(@"\n", "\r\n"));
 
 
         }

@@ -215,6 +215,8 @@ namespace ModernFlatUI
             HideSubMenu();
             pnlMain.Controls.Clear();
             RefreshCashRegisterSystemFromTheStart();
+            if (FrmForm1.txtName.Text == "")
+                FrmForm1.textBox1.ReadOnly = true;
             ShowFormCashRegisterSystem();
         }
 

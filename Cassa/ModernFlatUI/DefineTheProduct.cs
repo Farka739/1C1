@@ -41,11 +41,6 @@ namespace ModernFlatUI
             txtbDescription.Text = @"Description";
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void numericUpDown1_ValueChanged(object sender, EventArgs e)
         {
 
@@ -69,6 +64,21 @@ namespace ModernFlatUI
         private void btnProductList_Click(object sender, EventArgs e)
         {
             MainForm.Mainform.pnlMain.Controls.Clear();
+            if (FrmProductList.dgvProductList.Rows.Count == 1)
+            {
+                FrmProductList.products.Clear();
+            
+
+            FrmProductList.GetTheProductInfo();
+            for (var i = 0; i < FrmProductList.products.Count; i++)
+            {
+                FrmProductList.dgvProductList.Rows.Add(FrmProductList.products[i].Name, FrmProductList.products[i].Price, FrmProductList.products[i].Quantity,
+                    FrmProductList.products[i].Description);
+            }
+
+            FrmProductList.dgvProductList.Refresh();
+            }
+       
             MainForm.Mainform.ShowFormProductList();
             
         }
@@ -116,6 +126,67 @@ namespace ModernFlatUI
         {
             if (txtbDescription.Text == @"Description")
                 txtbDescription.SelectAll();
+        }
+
+        string oldTextName = string.Empty;
+        string oldTextPrice = "0";
+
+        private void txtbName_TextChanged(object sender, EventArgs e)
+        {
+            /*if (System.Text.RegularExpressions.Regex.IsMatch(txtbName.Text, "^[a-aA-Z ]")) return;
+            MessageBox.Show(@"This field accepts only alphabetical characters!");
+            txtbName.Text.Remove(txtbName.Text.Length - 1);*/
+
+            if (txtbName.Text.All(chr => char.IsLetterOrDigit(chr) || chr == '-' || chr == ' '))
+            {
+                oldTextName = txtbName.Text;
+                txtbName.Text = oldTextName;
+
+                txtbName.BackColor = System.Drawing.Color.White;
+                txtbName.ForeColor = System.Drawing.Color.Black;
+            }
+            else
+            {
+                txtbName.Text = oldTextName;
+                txtbName.BackColor = System.Drawing.Color.Red;
+                txtbName.ForeColor = System.Drawing.Color.White;
+            }
+            txtbName.SelectionStart = txtbName.Text.Length;
+        }
+
+        private void txtbPrice_TextChanged(object sender, EventArgs e)
+        {
+            txtbPrice.ForeColor = Color.Black;
+            txtbPrice.BackColor = Color.White;
+
+            if (!txtbPrice.Text.All(chr => char.IsNumber(chr) || chr == '.'))
+            {
+                //MessageBox.Show("This textbox accepts only alphabetical characters");
+                txtbPrice.Text = txtbPrice.Text.Remove(txtbPrice.Text.Length - 1);
+                txtbPrice.SelectionStart = txtbPrice.Text.Length;
+                txtbPrice.SelectionLength = 0;
+                txtbPrice.BackColor = Color.Red;
+                txtbPrice.ForeColor = Color.White;
+
+
+            }
+
+            /*System.Text.RegularExpressions.Regex.IsMatch(txtbPrice.Text, "^[0-9 ]"*/
+            /* if (txtbPrice.Text.All(chr => char.IsNumber(chr)))
+             {
+                 oldTextPrice = txtbPrice.Text;
+                 txtbPrice.Text = oldTextPrice;
+
+                 txtbPrice.BackColor = Color.White;
+                 txtbPrice.ForeColor = Color.Black;
+             }
+             else
+             {
+                 txtbPrice.Text = oldTextPrice;
+                 txtbPrice.BackColor = Color.Red;
+                 txtbPrice.ForeColor = Color.White;
+             }
+             txtbPrice.SelectionStart = txtbPrice.Text.Length;*/
         }
     }
 }
