@@ -44,38 +44,39 @@ namespace ModernFlatUI
             this.txtbName.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtbName.Location = new System.Drawing.Point(79, 49);
-            this.txtbName.Margin = new System.Windows.Forms.Padding(70, 40, 3, 3);
+            this.txtbName.Location = new System.Drawing.Point(59, 40);
+            this.txtbName.Margin = new System.Windows.Forms.Padding(52, 32, 2, 2);
             this.txtbName.Name = "txtbName";
-            this.txtbName.Size = new System.Drawing.Size(552, 22);
+            this.txtbName.Size = new System.Drawing.Size(415, 20);
             this.txtbName.TabIndex = 0;
             this.txtbName.Text = "Name";
             this.txtbName.Click += new System.EventHandler(this.txtbName_Click);
-            this.txtbName.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.txtbName.TextChanged += new System.EventHandler(this.txtbName_TextChanged);
             // 
             // txtbPrice
             // 
             this.txtbPrice.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtbPrice.Location = new System.Drawing.Point(637, 49);
-            this.txtbPrice.Margin = new System.Windows.Forms.Padding(3, 40, 3, 3);
-            this.txtbPrice.MaximumSize = new System.Drawing.Size(150, 22);
+            this.txtbPrice.Location = new System.Drawing.Point(478, 40);
+            this.txtbPrice.Margin = new System.Windows.Forms.Padding(2, 32, 2, 2);
+            this.txtbPrice.MaximumSize = new System.Drawing.Size(114, 22);
             this.txtbPrice.Name = "txtbPrice";
-            this.txtbPrice.Size = new System.Drawing.Size(150, 22);
+            this.txtbPrice.Size = new System.Drawing.Size(114, 20);
             this.txtbPrice.TabIndex = 1;
             this.txtbPrice.Text = "Price";
             this.txtbPrice.Click += new System.EventHandler(this.txtbPrice_Click);
+            this.txtbPrice.TextChanged += new System.EventHandler(this.txtbPrice_TextChanged);
             // 
             // txtbDescription
             // 
             this.txtbDescription.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtbDescription.Location = new System.Drawing.Point(79, 114);
-            this.txtbDescription.Margin = new System.Windows.Forms.Padding(70, 40, 70, 40);
+            this.txtbDescription.Location = new System.Drawing.Point(59, 93);
+            this.txtbDescription.Margin = new System.Windows.Forms.Padding(52, 32, 52, 32);
             this.txtbDescription.Multiline = true;
             this.txtbDescription.Name = "txtbDescription";
-            this.txtbDescription.Size = new System.Drawing.Size(795, 270);
+            this.txtbDescription.Size = new System.Drawing.Size(597, 220);
             this.txtbDescription.TabIndex = 3;
             this.txtbDescription.Text = "Description";
             this.txtbDescription.Click += new System.EventHandler(this.txtbDescription_Click);
@@ -84,15 +85,15 @@ namespace ModernFlatUI
             // 
             this.nudQuantity.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.nudQuantity.Location = new System.Drawing.Point(793, 49);
-            this.nudQuantity.Margin = new System.Windows.Forms.Padding(3, 40, 70, 3);
+            this.nudQuantity.Location = new System.Drawing.Point(595, 40);
+            this.nudQuantity.Margin = new System.Windows.Forms.Padding(2, 32, 52, 2);
             this.nudQuantity.Maximum = new decimal(new int[] {
             100000,
             0,
             0,
             0});
             this.nudQuantity.Name = "nudQuantity";
-            this.nudQuantity.Size = new System.Drawing.Size(81, 22);
+            this.nudQuantity.Size = new System.Drawing.Size(61, 20);
             this.nudQuantity.TabIndex = 4;
             this.nudQuantity.ValueChanged += new System.EventHandler(this.numericUpDown1_ValueChanged);
             // 
@@ -100,12 +101,12 @@ namespace ModernFlatUI
             // 
             this.btnProductList.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnProductList.Location = new System.Drawing.Point(79, 427);
-            this.btnProductList.Margin = new System.Windows.Forms.Padding(70, 3, 3, 40);
-            this.btnProductList.MaximumSize = new System.Drawing.Size(150, 40);
-            this.btnProductList.MinimumSize = new System.Drawing.Size(150, 40);
+            this.btnProductList.Location = new System.Drawing.Point(59, 347);
+            this.btnProductList.Margin = new System.Windows.Forms.Padding(52, 2, 2, 32);
+            this.btnProductList.MaximumSize = new System.Drawing.Size(112, 32);
+            this.btnProductList.MinimumSize = new System.Drawing.Size(112, 32);
             this.btnProductList.Name = "btnProductList";
-            this.btnProductList.Size = new System.Drawing.Size(150, 40);
+            this.btnProductList.Size = new System.Drawing.Size(112, 32);
             this.btnProductList.TabIndex = 5;
             this.btnProductList.Text = "Products List";
             this.btnProductList.UseVisualStyleBackColor = true;
@@ -114,12 +115,12 @@ namespace ModernFlatUI
             // btnAddTheProduct
             // 
             this.btnAddTheProduct.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnAddTheProduct.Location = new System.Drawing.Point(724, 427);
-            this.btnAddTheProduct.Margin = new System.Windows.Forms.Padding(3, 3, 70, 40);
-            this.btnAddTheProduct.MaximumSize = new System.Drawing.Size(150, 40);
-            this.btnAddTheProduct.MinimumSize = new System.Drawing.Size(150, 40);
+            this.btnAddTheProduct.Location = new System.Drawing.Point(543, 347);
+            this.btnAddTheProduct.Margin = new System.Windows.Forms.Padding(2, 2, 52, 32);
+            this.btnAddTheProduct.MaximumSize = new System.Drawing.Size(112, 32);
+            this.btnAddTheProduct.MinimumSize = new System.Drawing.Size(112, 32);
             this.btnAddTheProduct.Name = "btnAddTheProduct";
-            this.btnAddTheProduct.Size = new System.Drawing.Size(150, 40);
+            this.btnAddTheProduct.Size = new System.Drawing.Size(112, 32);
             this.btnAddTheProduct.TabIndex = 6;
             this.btnAddTheProduct.Text = "Add";
             this.btnAddTheProduct.UseVisualStyleBackColor = true;
@@ -129,11 +130,12 @@ namespace ModernFlatUI
             // 
             this.btnChangeTheProductInfo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnChangeTheProductInfo.Enabled = false;
-            this.btnChangeTheProductInfo.Location = new System.Drawing.Point(518, 427);
-            this.btnChangeTheProductInfo.MaximumSize = new System.Drawing.Size(200, 40);
-            this.btnChangeTheProductInfo.MinimumSize = new System.Drawing.Size(200, 40);
+            this.btnChangeTheProductInfo.Location = new System.Drawing.Point(388, 347);
+            this.btnChangeTheProductInfo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnChangeTheProductInfo.MaximumSize = new System.Drawing.Size(150, 32);
+            this.btnChangeTheProductInfo.MinimumSize = new System.Drawing.Size(150, 32);
             this.btnChangeTheProductInfo.Name = "btnChangeTheProductInfo";
-            this.btnChangeTheProductInfo.Size = new System.Drawing.Size(200, 40);
+            this.btnChangeTheProductInfo.Size = new System.Drawing.Size(150, 32);
             this.btnChangeTheProductInfo.TabIndex = 7;
             this.btnChangeTheProductInfo.Text = "Change";
             this.btnChangeTheProductInfo.UseVisualStyleBackColor = true;
@@ -141,9 +143,9 @@ namespace ModernFlatUI
             // 
             // DefineTheProduct
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(953, 516);
+            this.ClientSize = new System.Drawing.Size(715, 419);
             this.Controls.Add(this.btnChangeTheProductInfo);
             this.Controls.Add(this.btnAddTheProduct);
             this.Controls.Add(this.btnProductList);
@@ -152,6 +154,7 @@ namespace ModernFlatUI
             this.Controls.Add(this.txtbPrice);
             this.Controls.Add(this.txtbName);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "DefineTheProduct";
             this.Text = "DefineTheProduct";
             this.Load += new System.EventHandler(this.DefineTheProduct_Load);
