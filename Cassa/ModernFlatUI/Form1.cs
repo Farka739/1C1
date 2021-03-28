@@ -434,5 +434,10 @@ namespace ModernFlatUI
         {
 
         }
+
+        private void dataOrderWindow_SelectionChanged(object sender, EventArgs e)
+        {
+            dataOrderWindow.ClearSelection();
+        }
     }
 }
