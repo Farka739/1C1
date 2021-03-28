@@ -63,7 +63,7 @@ namespace ModernFlatUI
             this.txtbPrice.Name = "txtbPrice";
             this.txtbPrice.Size = new System.Drawing.Size(114, 20);
             this.txtbPrice.TabIndex = 1;
-            this.txtbPrice.Text = "Price";
+            this.txtbPrice.Text = "0";
             this.txtbPrice.Click += new System.EventHandler(this.txtbPrice_Click);
             this.txtbPrice.TextChanged += new System.EventHandler(this.txtbPrice_TextChanged);
             // 
@@ -131,7 +131,7 @@ namespace ModernFlatUI
             this.btnChangeTheProductInfo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnChangeTheProductInfo.Enabled = false;
             this.btnChangeTheProductInfo.Location = new System.Drawing.Point(388, 347);
-            this.btnChangeTheProductInfo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnChangeTheProductInfo.Margin = new System.Windows.Forms.Padding(2);
             this.btnChangeTheProductInfo.MaximumSize = new System.Drawing.Size(150, 32);
             this.btnChangeTheProductInfo.MinimumSize = new System.Drawing.Size(150, 32);
             this.btnChangeTheProductInfo.Name = "btnChangeTheProductInfo";
@@ -154,7 +154,7 @@ namespace ModernFlatUI
             this.Controls.Add(this.txtbPrice);
             this.Controls.Add(this.txtbName);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "DefineTheProduct";
             this.Text = "DefineTheProduct";
             this.Load += new System.EventHandler(this.DefineTheProduct_Load);

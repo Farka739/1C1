@@ -174,5 +174,18 @@ namespace ModernFlatUI
             MainForm.Mainform.ShowFormDefineTheProduct();
             
         }
+
+        private void dgvProductList_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            btnOpenTheDescription.Top = dgvProductList
+                .GetCellDisplayRectangle(dgvProductList.CurrentCell.ColumnIndex, dgvProductList.CurrentRow.Index, false).Top + 50;
+        }
+
+        private void dgvProductList_Scroll(object sender, ScrollEventArgs e)
+        {
+            btnOpenTheDescription.Top = dgvProductList
+                .GetCellDisplayRectangle(dgvProductList.CurrentCell.ColumnIndex, dgvProductList.CurrentRow.Index, false).Top + 50;
+
+        }
     }
 }

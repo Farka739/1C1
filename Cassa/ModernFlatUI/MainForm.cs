@@ -182,6 +182,9 @@ namespace ModernFlatUI
         #region ProductMaintenance
         private void btnDefineTheProduct_Click(object sender, EventArgs e)
         {
+           /* FrmDefineTheProduct.txtbPrice.ForeColor = Color.Black;
+            FrmDefineTheProduct.txtbPrice.BackColor = Color.White;
+            FrmDefineTheProduct.txtbPrice.Text = "0";*/
             HideSubMenu();
             FrmDefineTheProduct.ClearTheInfoInDefineTheProduct();
             FrmDefineTheProduct.btnAddTheProduct.Enabled = true;

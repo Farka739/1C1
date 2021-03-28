@@ -29,19 +29,24 @@ namespace ModernFlatUI
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ProductList));
             this.dgvProductList = new System.Windows.Forms.DataGridView();
-            this.btnOpenTheDescription = new System.Windows.Forms.Button();
-            this.btnBackToDefine = new System.Windows.Forms.Button();
-            this.btnChangeTheInfo = new System.Windows.Forms.Button();
             this.dgvName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvQuantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvDescription = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnOpenTheDescription = new System.Windows.Forms.Button();
+            this.btnBackToDefine = new System.Windows.Forms.Button();
+            this.btnChangeTheInfo = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProductList)).BeginInit();
             this.SuspendLayout();
             // 
             // dgvProductList
             // 
+            this.dgvProductList.AllowUserToAddRows = false;
+            this.dgvProductList.AllowUserToDeleteRows = false;
+            this.dgvProductList.AllowUserToResizeColumns = false;
+            this.dgvProductList.AllowUserToResizeRows = false;
             this.dgvProductList.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -51,57 +56,19 @@ namespace ModernFlatUI
             this.dgvPrice,
             this.dgvQuantity,
             this.dgvDescription});
-            this.dgvProductList.Location = new System.Drawing.Point(79, 49);
-            this.dgvProductList.Margin = new System.Windows.Forms.Padding(70, 40, 70, 40);
+            this.dgvProductList.Location = new System.Drawing.Point(59, 40);
+            this.dgvProductList.Margin = new System.Windows.Forms.Padding(52, 32, 52, 32);
             this.dgvProductList.MultiSelect = false;
             this.dgvProductList.Name = "dgvProductList";
             this.dgvProductList.RowHeadersWidth = 51;
+            this.dgvProductList.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dgvProductList.RowTemplate.Height = 24;
             this.dgvProductList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvProductList.Size = new System.Drawing.Size(855, 402);
+            this.dgvProductList.Size = new System.Drawing.Size(641, 327);
             this.dgvProductList.TabIndex = 0;
+            this.dgvProductList.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProductList_CellClick);
             this.dgvProductList.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProductList_CellEndEdit);
-            // 
-            // btnOpenTheDescription
-            // 
-            this.btnOpenTheDescription.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnOpenTheDescription.Location = new System.Drawing.Point(894, 52);
-            this.btnOpenTheDescription.MaximumSize = new System.Drawing.Size(21, 21);
-            this.btnOpenTheDescription.MinimumSize = new System.Drawing.Size(21, 21);
-            this.btnOpenTheDescription.Name = "btnOpenTheDescription";
-            this.btnOpenTheDescription.Size = new System.Drawing.Size(21, 21);
-            this.btnOpenTheDescription.TabIndex = 1;
-            this.btnOpenTheDescription.UseVisualStyleBackColor = true;
-            this.btnOpenTheDescription.Click += new System.EventHandler(this.btnOpenTheDescription_Click);
-            // 
-            // btnBackToDefine
-            // 
-            this.btnBackToDefine.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnBackToDefine.Location = new System.Drawing.Point(784, 494);
-            this.btnBackToDefine.Margin = new System.Windows.Forms.Padding(3, 3, 70, 40);
-            this.btnBackToDefine.MaximumSize = new System.Drawing.Size(150, 40);
-            this.btnBackToDefine.MinimumSize = new System.Drawing.Size(150, 40);
-            this.btnBackToDefine.Name = "btnBackToDefine";
-            this.btnBackToDefine.Size = new System.Drawing.Size(150, 40);
-            this.btnBackToDefine.TabIndex = 7;
-            this.btnBackToDefine.Text = "Add New Item";
-            this.btnBackToDefine.UseVisualStyleBackColor = true;
-            this.btnBackToDefine.Click += new System.EventHandler(this.btnBackToDefine_Click);
-            // 
-            // btnChangeTheInfo
-            // 
-            this.btnChangeTheInfo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnChangeTheInfo.Location = new System.Drawing.Point(578, 494);
-            this.btnChangeTheInfo.Margin = new System.Windows.Forms.Padding(3, 3, 3, 40);
-            this.btnChangeTheInfo.MaximumSize = new System.Drawing.Size(200, 40);
-            this.btnChangeTheInfo.MinimumSize = new System.Drawing.Size(200, 40);
-            this.btnChangeTheInfo.Name = "btnChangeTheInfo";
-            this.btnChangeTheInfo.Size = new System.Drawing.Size(200, 40);
-            this.btnChangeTheInfo.TabIndex = 8;
-            this.btnChangeTheInfo.Text = "Change The Product Info";
-            this.btnChangeTheInfo.UseVisualStyleBackColor = true;
-            this.btnChangeTheInfo.Click += new System.EventHandler(this.btnChangeTheInfo_Click);
+            this.dgvProductList.Scroll += new System.Windows.Forms.ScrollEventHandler(this.dgvProductList_Scroll);
             // 
             // dgvName
             // 
@@ -146,16 +113,61 @@ namespace ModernFlatUI
             this.dgvDescription.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvDescription.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
+            // btnOpenTheDescription
+            // 
+            this.btnOpenTheDescription.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnOpenTheDescription.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnOpenTheDescription.BackgroundImage")));
+            this.btnOpenTheDescription.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnOpenTheDescription.Location = new System.Drawing.Point(670, 62);
+            this.btnOpenTheDescription.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnOpenTheDescription.MaximumSize = new System.Drawing.Size(16, 17);
+            this.btnOpenTheDescription.MinimumSize = new System.Drawing.Size(16, 17);
+            this.btnOpenTheDescription.Name = "btnOpenTheDescription";
+            this.btnOpenTheDescription.Size = new System.Drawing.Size(16, 17);
+            this.btnOpenTheDescription.TabIndex = 1;
+            this.btnOpenTheDescription.UseVisualStyleBackColor = true;
+            this.btnOpenTheDescription.Click += new System.EventHandler(this.btnOpenTheDescription_Click);
+            // 
+            // btnBackToDefine
+            // 
+            this.btnBackToDefine.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnBackToDefine.Location = new System.Drawing.Point(588, 401);
+            this.btnBackToDefine.Margin = new System.Windows.Forms.Padding(2, 2, 52, 32);
+            this.btnBackToDefine.MaximumSize = new System.Drawing.Size(112, 32);
+            this.btnBackToDefine.MinimumSize = new System.Drawing.Size(112, 32);
+            this.btnBackToDefine.Name = "btnBackToDefine";
+            this.btnBackToDefine.Size = new System.Drawing.Size(112, 32);
+            this.btnBackToDefine.TabIndex = 7;
+            this.btnBackToDefine.Text = "Add New Item";
+            this.btnBackToDefine.UseVisualStyleBackColor = true;
+            this.btnBackToDefine.Click += new System.EventHandler(this.btnBackToDefine_Click);
+            // 
+            // btnChangeTheInfo
+            // 
+            this.btnChangeTheInfo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnChangeTheInfo.Location = new System.Drawing.Point(434, 401);
+            this.btnChangeTheInfo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 32);
+            this.btnChangeTheInfo.MaximumSize = new System.Drawing.Size(150, 32);
+            this.btnChangeTheInfo.MinimumSize = new System.Drawing.Size(150, 32);
+            this.btnChangeTheInfo.Name = "btnChangeTheInfo";
+            this.btnChangeTheInfo.Size = new System.Drawing.Size(150, 32);
+            this.btnChangeTheInfo.TabIndex = 8;
+            this.btnChangeTheInfo.Text = "Change The Product Info";
+            this.btnChangeTheInfo.UseVisualStyleBackColor = true;
+            this.btnChangeTheInfo.Click += new System.EventHandler(this.btnChangeTheInfo_Click);
+            // 
             // ProductList
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1013, 583);
+            this.ClientSize = new System.Drawing.Size(760, 474);
             this.Controls.Add(this.btnChangeTheInfo);
             this.Controls.Add(this.btnBackToDefine);
             this.Controls.Add(this.btnOpenTheDescription);
             this.Controls.Add(this.dgvProductList);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "ProductList";
             this.Text = "ProductList";
             this.Load += new System.EventHandler(this.ProductList_Load);
