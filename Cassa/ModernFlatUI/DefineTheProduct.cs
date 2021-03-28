@@ -58,7 +58,9 @@ namespace ModernFlatUI
 
         private void DefineTheProduct_Load(object sender, EventArgs e)
         {
-
+            txtbPrice.ForeColor = Color.Black;
+            txtbPrice.BackColor = Color.White;
+            txtbPrice.Text = "0";
         }
 
         private void btnProductList_Click(object sender, EventArgs e)
@@ -118,7 +120,7 @@ namespace ModernFlatUI
 
         private void txtbPrice_Click(object sender, EventArgs e)
         {
-            if (txtbPrice.Text == @"Price")
+            if (txtbPrice.Text == @"0")
                 txtbPrice.SelectAll();
         }
 
@@ -159,17 +161,13 @@ namespace ModernFlatUI
             txtbPrice.ForeColor = Color.Black;
             txtbPrice.BackColor = Color.White;
 
-            if (!txtbPrice.Text.All(chr => char.IsNumber(chr) || chr == '.'))
-            {
-                //MessageBox.Show("This textbox accepts only alphabetical characters");
-                txtbPrice.Text = txtbPrice.Text.Remove(txtbPrice.Text.Length - 1);
-                txtbPrice.SelectionStart = txtbPrice.Text.Length;
-                txtbPrice.SelectionLength = 0;
-                txtbPrice.BackColor = Color.Red;
-                txtbPrice.ForeColor = Color.White;
-
-
-            }
+            if (txtbPrice.Text.All(chr => char.IsNumber(chr) || chr == '.')) return;
+            //MessageBox.Show("This textbox accepts only alphabetical characters");
+            txtbPrice.Text = txtbPrice.Text.Remove(txtbPrice.Text.Length - 1);
+            txtbPrice.SelectionStart = txtbPrice.Text.Length;
+            txtbPrice.SelectionLength = 0;
+            txtbPrice.BackColor = Color.Red;
+            txtbPrice.ForeColor = Color.White;
 
             /*System.Text.RegularExpressions.Regex.IsMatch(txtbPrice.Text, "^[0-9 ]"*/
             /* if (txtbPrice.Text.All(chr => char.IsNumber(chr)))

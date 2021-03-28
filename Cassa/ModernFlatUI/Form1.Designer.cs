@@ -247,6 +247,7 @@ namespace ModernFlatUI
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dataOrderWindow.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataOrderWindow.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataOrderWindow.Enabled = false;
             this.dataOrderWindow.Location = new System.Drawing.Point(574, 252);
             this.dataOrderWindow.MultiSelect = false;
             this.dataOrderWindow.Name = "dataOrderWindow";
@@ -254,6 +255,7 @@ namespace ModernFlatUI
             this.dataOrderWindow.RowHeadersVisible = false;
             this.dataOrderWindow.RowHeadersWidth = 51;
             this.dataOrderWindow.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.dataOrderWindow.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataOrderWindow.Size = new System.Drawing.Size(290, 115);
             this.dataOrderWindow.TabIndex = 12;
             this.dataOrderWindow.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
