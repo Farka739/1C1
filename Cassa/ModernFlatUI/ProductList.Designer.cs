@@ -120,7 +120,7 @@ namespace ModernFlatUI
             this.btnOpenTheDescription.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnOpenTheDescription.BackgroundImage")));
             this.btnOpenTheDescription.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnOpenTheDescription.Location = new System.Drawing.Point(670, 62);
-            this.btnOpenTheDescription.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnOpenTheDescription.Margin = new System.Windows.Forms.Padding(2);
             this.btnOpenTheDescription.MaximumSize = new System.Drawing.Size(16, 17);
             this.btnOpenTheDescription.MinimumSize = new System.Drawing.Size(16, 17);
             this.btnOpenTheDescription.Name = "btnOpenTheDescription";
@@ -167,7 +167,7 @@ namespace ModernFlatUI
             this.Controls.Add(this.btnOpenTheDescription);
             this.Controls.Add(this.dgvProductList);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "ProductList";
             this.Text = "ProductList";
             this.Load += new System.EventHandler(this.ProductList_Load);

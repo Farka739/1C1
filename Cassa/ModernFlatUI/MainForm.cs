@@ -91,7 +91,13 @@ namespace ModernFlatUI
             }
 
             FrmForm1.table?.Clear();
+            if (!File.Exists(@"OldProductList.txt"))
+            {
+                using (var sw = File.CreateText(@"OldProductList.txt"))
+                {
 
+                }
+            }
             var exceptlines = File.ReadAllLines(@"OldProductList.txt");
             string[] exceptvalues;
 
@@ -218,6 +224,7 @@ namespace ModernFlatUI
             HideSubMenu();
             pnlMain.Controls.Clear();
             RefreshCashRegisterSystemFromTheStart();
+            FrmForm1.button3.Enabled = File.ReadAllLines(@"OldProductList.txt").Length != 0;
             if (FrmForm1.txtName.Text == "")
                 FrmForm1.textBox1.ReadOnly = true;
             ShowFormCashRegisterSystem();
@@ -230,7 +237,18 @@ namespace ModernFlatUI
 
         private void Form1_Load(object sender, EventArgs e)
         {
+
         }
-     
+
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+            if (!File.Exists(@"OldProductList.txt"))
+            {
+                using (var sw = File.CreateText(@"OldProductList.txt"))
+                {
+
+                }
+            }
+        }
     }
 }

@@ -32,6 +32,13 @@ namespace ModernFlatUI
         readonly DataTable ordertable = new DataTable();
         private void Form1_Load(object sender, EventArgs e)
         {
+            if (!File.Exists(@"ram.txt"))
+            {
+                using (var sw = File.CreateText(@"ram.txt"))
+                {
+                    fakevar = 2;
+                }
+            }
 
             FormClosing += Form1_Closing;
             button1.Click += button1_Click;
@@ -218,6 +225,26 @@ namespace ModernFlatUI
 
         private void AddToTop10Products()
         {
+            if (!File.Exists(PathTop10ProductsFile))
+            {
+                using (var sw = File.CreateText(PathTop10ProductsFile))
+                {
+                    var sr = File.ReadAllLines(@"OldProductList.txt");
+                    foreach (var line in sr)
+                    {
+                        sw.WriteLine(line.Split('/')[0] + '/' + '0');
+                    }
+                }
+            }
+
+            if (!File.Exists(@"ram.txt"))
+            {
+                using (var sw = File.CreateText(@"ram.txt"))
+                {
+                    fakevar = 2;
+                }
+            }
+
             var lineToEdit = 0; 
             for (var i = 0; i < dataOrderWindow.RowCount; i++)
             {

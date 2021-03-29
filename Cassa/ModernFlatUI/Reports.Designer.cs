@@ -39,45 +39,48 @@ namespace ModernFlatUI
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.btnRefresh = new System.Windows.Forms.Button();
-            this.treeView1 = new System.Windows.Forms.TreeView();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.monthCalendar1 = new System.Windows.Forms.MonthCalendar();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(76, 30);
+            this.label1.Location = new System.Drawing.Point(57, 24);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(337, 17);
+            this.label1.Size = new System.Drawing.Size(254, 13);
             this.label1.TabIndex = 2;
             this.label1.Text = "Choose the Date period in the DD-MM-YYYY format:";
             this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // txtbStartDate
             // 
-            this.txtbStartDate.Location = new System.Drawing.Point(79, 84);
+            this.txtbStartDate.Location = new System.Drawing.Point(59, 68);
+            this.txtbStartDate.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtbStartDate.MaxLength = 10;
             this.txtbStartDate.Name = "txtbStartDate";
-            this.txtbStartDate.Size = new System.Drawing.Size(70, 22);
+            this.txtbStartDate.Size = new System.Drawing.Size(54, 20);
             this.txtbStartDate.TabIndex = 1;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(155, 87);
+            this.label2.Location = new System.Drawing.Point(174, 72);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(13, 17);
+            this.label2.Size = new System.Drawing.Size(10, 13);
             this.label2.TabIndex = 4;
             this.label2.Text = "-";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // txtbEndDate
             // 
-            this.txtbEndDate.Location = new System.Drawing.Point(174, 84);
+            this.txtbEndDate.Location = new System.Drawing.Point(235, 68);
+            this.txtbEndDate.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtbEndDate.MaxLength = 10;
             this.txtbEndDate.Name = "txtbEndDate";
-            this.txtbEndDate.Size = new System.Drawing.Size(70, 22);
+            this.txtbEndDate.Size = new System.Drawing.Size(54, 20);
             this.txtbEndDate.TabIndex = 2;
             this.txtbEndDate.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtbEndDate_KeyUp);
             // 
@@ -86,11 +89,11 @@ namespace ModernFlatUI
             this.rtxtbReportContent.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.rtxtbReportContent.Location = new System.Drawing.Point(79, 144);
-            this.rtxtbReportContent.Margin = new System.Windows.Forms.Padding(70, 40, 70, 40);
+            this.rtxtbReportContent.Location = new System.Drawing.Point(59, 117);
+            this.rtxtbReportContent.Margin = new System.Windows.Forms.Padding(52, 32, 52, 32);
             this.rtxtbReportContent.Name = "rtxtbReportContent";
             this.rtxtbReportContent.ReadOnly = true;
-            this.rtxtbReportContent.Size = new System.Drawing.Size(791, 290);
+            this.rtxtbReportContent.Size = new System.Drawing.Size(594, 236);
             this.rtxtbReportContent.TabIndex = 3;
             this.rtxtbReportContent.Text = "";
             // 
@@ -98,12 +101,12 @@ namespace ModernFlatUI
             // 
             this.btnMakeTheReport.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnMakeTheReport.Enabled = false;
-            this.btnMakeTheReport.Location = new System.Drawing.Point(720, 477);
-            this.btnMakeTheReport.Margin = new System.Windows.Forms.Padding(3, 3, 70, 40);
-            this.btnMakeTheReport.MaximumSize = new System.Drawing.Size(150, 40);
-            this.btnMakeTheReport.MinimumSize = new System.Drawing.Size(150, 40);
+            this.btnMakeTheReport.Location = new System.Drawing.Point(540, 388);
+            this.btnMakeTheReport.Margin = new System.Windows.Forms.Padding(2, 2, 52, 32);
+            this.btnMakeTheReport.MaximumSize = new System.Drawing.Size(112, 32);
+            this.btnMakeTheReport.MinimumSize = new System.Drawing.Size(112, 32);
             this.btnMakeTheReport.Name = "btnMakeTheReport";
-            this.btnMakeTheReport.Size = new System.Drawing.Size(150, 40);
+            this.btnMakeTheReport.Size = new System.Drawing.Size(112, 32);
             this.btnMakeTheReport.TabIndex = 7;
             this.btnMakeTheReport.Text = "Make the Report";
             this.btnMakeTheReport.UseVisualStyleBackColor = true;
@@ -112,12 +115,12 @@ namespace ModernFlatUI
             // btnTop10Products
             // 
             this.btnTop10Products.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnTop10Products.Location = new System.Drawing.Point(564, 477);
-            this.btnTop10Products.Margin = new System.Windows.Forms.Padding(3, 3, 3, 40);
-            this.btnTop10Products.MaximumSize = new System.Drawing.Size(150, 40);
-            this.btnTop10Products.MinimumSize = new System.Drawing.Size(150, 40);
+            this.btnTop10Products.Location = new System.Drawing.Point(423, 388);
+            this.btnTop10Products.Margin = new System.Windows.Forms.Padding(2, 2, 2, 32);
+            this.btnTop10Products.MaximumSize = new System.Drawing.Size(112, 32);
+            this.btnTop10Products.MinimumSize = new System.Drawing.Size(112, 32);
             this.btnTop10Products.Name = "btnTop10Products";
-            this.btnTop10Products.Size = new System.Drawing.Size(150, 40);
+            this.btnTop10Products.Size = new System.Drawing.Size(112, 32);
             this.btnTop10Products.TabIndex = 8;
             this.btnTop10Products.Text = "Top 10 Products";
             this.btnTop10Products.UseVisualStyleBackColor = true;
@@ -126,64 +129,62 @@ namespace ModernFlatUI
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(76, 58);
+            this.label3.Location = new System.Drawing.Point(57, 47);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(42, 17);
+            this.label3.Size = new System.Drawing.Size(32, 13);
             this.label3.TabIndex = 9;
             this.label3.Text = "Start:";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(171, 58);
+            this.label4.Location = new System.Drawing.Point(232, 47);
+            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(37, 17);
+            this.label4.Size = new System.Drawing.Size(29, 13);
             this.label4.TabIndex = 10;
             this.label4.Text = "End:";
             // 
             // btnRefresh
             // 
             this.btnRefresh.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnRefresh.Location = new System.Drawing.Point(408, 477);
-            this.btnRefresh.Margin = new System.Windows.Forms.Padding(3, 3, 3, 40);
-            this.btnRefresh.MaximumSize = new System.Drawing.Size(150, 40);
-            this.btnRefresh.MinimumSize = new System.Drawing.Size(150, 40);
+            this.btnRefresh.Location = new System.Drawing.Point(306, 388);
+            this.btnRefresh.Margin = new System.Windows.Forms.Padding(2, 2, 2, 32);
+            this.btnRefresh.MaximumSize = new System.Drawing.Size(112, 32);
+            this.btnRefresh.MinimumSize = new System.Drawing.Size(112, 32);
             this.btnRefresh.Name = "btnRefresh";
-            this.btnRefresh.Size = new System.Drawing.Size(150, 40);
+            this.btnRefresh.Size = new System.Drawing.Size(112, 32);
             this.btnRefresh.TabIndex = 11;
             this.btnRefresh.Text = "Refresh";
             this.btnRefresh.UseVisualStyleBackColor = true;
             this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
             // 
-            // treeView1
+            // dateTimePicker1
             // 
-            this.treeView1.Location = new System.Drawing.Point(251, 84);
-            this.treeView1.Name = "treeView1";
-            this.treeView1.Size = new System.Drawing.Size(121, 21);
-            this.treeView1.TabIndex = 12;
+            this.dateTimePicker1.CustomFormat = "3/29/2021";
+            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimePicker1.Location = new System.Drawing.Point(59, 93);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(112, 20);
+            this.dateTimePicker1.TabIndex = 15;
             // 
-            // comboBox1
+            // dateTimePicker2
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(456, 84);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 24);
-            this.comboBox1.TabIndex = 13;
-            // 
-            // monthCalendar1
-            // 
-            this.monthCalendar1.Location = new System.Drawing.Point(655, 71);
-            this.monthCalendar1.Name = "monthCalendar1";
-            this.monthCalendar1.TabIndex = 14;
+            this.dateTimePicker2.CustomFormat = "3/29/2021";
+            this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimePicker2.Location = new System.Drawing.Point(177, 93);
+            this.dateTimePicker2.Name = "dateTimePicker2";
+            this.dateTimePicker2.Size = new System.Drawing.Size(112, 20);
+            this.dateTimePicker2.TabIndex = 16;
             // 
             // Reports
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(949, 566);
-            this.Controls.Add(this.monthCalendar1);
-            this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.treeView1);
+            this.ClientSize = new System.Drawing.Size(712, 460);
+            this.Controls.Add(this.dateTimePicker2);
+            this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.btnRefresh);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
@@ -195,6 +196,7 @@ namespace ModernFlatUI
             this.Controls.Add(this.label1);
             this.Controls.Add(this.rtxtbReportContent);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "Reports";
             this.Text = "Reports";
             this.Load += new System.EventHandler(this.Reports_Load);
@@ -214,8 +216,7 @@ namespace ModernFlatUI
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         public System.Windows.Forms.Button btnRefresh;
-        private System.Windows.Forms.TreeView treeView1;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.MonthCalendar monthCalendar1;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker dateTimePicker2;
     }
 }
