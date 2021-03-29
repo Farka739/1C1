@@ -34,7 +34,32 @@ namespace ModernFlatUI
 
         private void Reports_Load(object sender, EventArgs e)
         {
+            if (!Directory.Exists(Path))
+            {
+                Directory.CreateDirectory(Path);
+            }
 
+            if (!Directory.Exists(ReportsFolderPath))
+            {
+                Directory.CreateDirectory(ReportsFolderPath);
+            }
+
+            if (!Directory.Exists(PathTop10ProductsFolder))
+            {
+                Directory.CreateDirectory(PathTop10ProductsFolder);
+            }
+
+            if (!File.Exists(PathTop10ProductsFile))
+            {
+                using (var sw = File.CreateText(PathTop10ProductsFile))
+                {
+                    var sr = File.ReadAllLines(@"OldProductList.txt");
+                    foreach (var line in sr)
+                    {
+                        sw.WriteLine(line.Split('/')[0] + '/' + '0');
+                    }
+                }
+            }
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -206,6 +231,28 @@ namespace ModernFlatUI
 
         public void GetTop10()
         {
+            if (!Directory.Exists(ReportsFolderPath))
+            {
+                Directory.CreateDirectory(ReportsFolderPath);
+            }
+
+            if (!Directory.Exists(PathTop10ProductsFolder))
+            {
+                Directory.CreateDirectory(PathTop10ProductsFolder);
+            }
+
+            if (!File.Exists(PathTop10ProductsFile))
+            {
+                using (var sw = File.CreateText(PathTop10ProductsFile))
+                {
+                    var sr = File.ReadAllLines(@"OldProductList.txt");
+                    foreach (var line in sr)
+                    {
+                        sw.WriteLine(line.Split('/')[0] + '/' + '0');
+                    }
+                }
+            }
+
             var top10 = File.ReadAllLines(PathTop10ProductsFile);
             for (var j = 0; j <= top10.Length - 2; j++)
             {

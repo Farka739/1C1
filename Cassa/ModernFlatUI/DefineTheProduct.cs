@@ -36,7 +36,7 @@ namespace ModernFlatUI
         public void ClearTheInfoInDefineTheProduct()
         {
             txtbName.Text = @"Name";
-            txtbPrice.Text = @"Price";
+            txtbPrice.Text = @"0";
             nudQuantity.Value = 0;
             txtbDescription.Text = @"Description";
         }
@@ -60,7 +60,7 @@ namespace ModernFlatUI
         {
             txtbPrice.ForeColor = Color.Black;
             txtbPrice.BackColor = Color.White;
-            txtbPrice.Text = "0";
+            //txtbPrice.Text = "0";
         }
 
         private void btnProductList_Click(object sender, EventArgs e)
@@ -87,6 +87,22 @@ namespace ModernFlatUI
 
         private void btnChangeTheProductInfo_Click(object sender, EventArgs e)
         {
+            if (!File.Exists(Path))
+            {
+                using (var sw = File.CreateText(Path))
+                {
+
+                }
+            }
+
+            if (!File.Exists(TempPath))
+            {
+                using (var sw = File.CreateText(TempPath))
+                {
+
+                }
+            }
+
             var rowIndex = FrmProductList.dgvProductList.CurrentCell.RowIndex;
 
             FrmProductList.products[rowIndex] =
@@ -110,6 +126,7 @@ namespace ModernFlatUI
             File.WriteAllLines(Path, arrLine);
             FrmProductList.dgvProductList.Rows.RemoveAt(rowIndex);
             FrmProductList.dgvProductList.Rows.Insert(rowIndex, newLine.Name, newLine.Price, newLine.Quantity, newLine.Description);
+            FrmProductList.dgvProductList.Rows[rowIndex].Selected = true;
         }
 
         private void txtbName_Click(object sender, EventArgs e)

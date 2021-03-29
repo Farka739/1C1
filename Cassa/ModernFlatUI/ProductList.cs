@@ -44,6 +44,13 @@ namespace ModernFlatUI
 
         public void GetTheProductInfo()
         {
+            if (!File.Exists(Path))
+            {
+                using (var sw = File.CreateText(Path))
+                {
+
+                }
+            }
             var lines = File.ReadAllLines(Path);
             foreach (var line in lines)
             {
@@ -85,6 +92,22 @@ namespace ModernFlatUI
 
         private void dgvProductList_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
+            if (!File.Exists(Path))
+            {
+                using (var sw = File.CreateText(Path))
+                {
+
+                }
+            }
+
+            if (!File.Exists(TempPath))
+            {
+                using (var sw = File.CreateText(TempPath))
+                {
+
+                }
+            }
+
             var columnIndex = dgvProductList.CurrentCell.ColumnIndex;
             var rowIndex = dgvProductList.CurrentCell.RowIndex;
             var cellValue = (string) dgvProductList.CurrentCell.Value;
@@ -179,6 +202,7 @@ namespace ModernFlatUI
         {
             btnOpenTheDescription.Top = dgvProductList
                 .GetCellDisplayRectangle(dgvProductList.CurrentCell.ColumnIndex, dgvProductList.CurrentRow.Index, false).Top + 50;
+           
         }
 
         private void dgvProductList_Scroll(object sender, ScrollEventArgs e)
