@@ -69,6 +69,7 @@ namespace ModernFlatUI
             this.dataEditWindow.MultiSelect = false;
             this.dataEditWindow.Name = "dataEditWindow";
             this.dataEditWindow.ReadOnly = true;
+            this.dataEditWindow.RowHeadersVisible = false;
             this.dataEditWindow.RowHeadersWidth = 51;
             this.dataEditWindow.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dataEditWindow.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -248,14 +249,17 @@ namespace ModernFlatUI
             this.dataOrderWindow.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataOrderWindow.Enabled = false;
             this.dataOrderWindow.Location = new System.Drawing.Point(574, 252);
+            this.dataOrderWindow.MultiSelect = false;
             this.dataOrderWindow.Name = "dataOrderWindow";
             this.dataOrderWindow.ReadOnly = true;
+            this.dataOrderWindow.RowHeadersVisible = false;
             this.dataOrderWindow.RowHeadersWidth = 51;
             this.dataOrderWindow.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dataOrderWindow.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataOrderWindow.Size = new System.Drawing.Size(290, 115);
             this.dataOrderWindow.TabIndex = 12;
             this.dataOrderWindow.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            this.dataOrderWindow.SelectionChanged += new System.EventHandler(this.dataOrderWindow_SelectionChanged);
             // 
             // label4
             // 
