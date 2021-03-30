@@ -29,6 +29,7 @@ namespace ModernFlatUI
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.pnlSubMenu = new System.Windows.Forms.Panel();
             this.pnlProductMaintenance = new System.Windows.Forms.Panel();
             this.btnListOfProducts = new System.Windows.Forms.Button();
@@ -221,12 +222,15 @@ namespace ModernFlatUI
             this.ClientSize = new System.Drawing.Size(1084, 620);
             this.Controls.Add(this.pnlMain);
             this.Controls.Add(this.pnlSubMenu);
+            this.Cursor = System.Windows.Forms.Cursors.Default;
+            this.DoubleBuffered = true;
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.MinimumSize = new System.Drawing.Size(1100, 600);
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Form1";
+            this.Text = "Cassa";
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.pnlSubMenu.ResumeLayout(false);
             this.pnlProductMaintenance.ResumeLayout(false);

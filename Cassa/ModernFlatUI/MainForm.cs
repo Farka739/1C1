@@ -158,13 +158,14 @@ namespace ModernFlatUI
         {
             HideSubMenu();
             pnlMain.Controls.Clear();
-            FrmReports.txtbStartDate.Enabled = true;
-            FrmReports.txtbEndDate.Enabled = true;
-            FrmReports.txtbStartDate.Text = "";
-            FrmReports.txtbEndDate.Text = "";
+            //FrmReports.txtbStartDate.Enabled = true;
+            //FrmReports.txtbEndDate.Enabled = true;
+            //FrmReports.txtbStartDate.Text = "";
+            //FrmReports.txtbEndDate.Text = "";
             FrmReports.rtxtbReportContent.Text = "";
-            FrmReports.btnTop10Products.Enabled = false;
-
+            FrmReports.btnTop10Products.Enabled = true;
+            FrmReports.btnMakeTheReport.Enabled = true;
+            
             ShowFormReports();
         }
 
@@ -172,12 +173,13 @@ namespace ModernFlatUI
         {
             HideSubMenu();
             pnlMain.Controls.Clear();
-            FrmReports.txtbStartDate.Enabled = false;
-            FrmReports.txtbEndDate.Enabled = false;
-            FrmReports.txtbStartDate.Text = "";
-            FrmReports.txtbEndDate.Text = "";
+            //FrmReports.txtbStartDate.Enabled = false;
+            //FrmReports.txtbEndDate.Enabled = false;
+            //FrmReports.txtbStartDate.Text = "";
+            //FrmReports.txtbEndDate.Text = "";
             FrmReports.rtxtbReportContent.Text = "";
             FrmReports.btnTop10Products.Enabled = false;
+            FrmReports.btnMakeTheReport.Enabled = false;
             FrmReports.GetTop10();
 
             ShowFormReports();

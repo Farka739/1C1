@@ -207,6 +207,11 @@ namespace ModernFlatUI
 
         private void dgvProductList_Scroll(object sender, ScrollEventArgs e)
         {
+            if (dgvProductList.CurrentRow.Index == 0)
+            {
+                btnOpenTheDescription.Visible = false;
+            }
+            btnOpenTheDescription.Visible = true;
             btnOpenTheDescription.Top = dgvProductList
                 .GetCellDisplayRectangle(dgvProductList.CurrentCell.ColumnIndex, dgvProductList.CurrentRow.Index, false).Top + 50;
 

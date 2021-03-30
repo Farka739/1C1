@@ -30,17 +30,14 @@ namespace ModernFlatUI
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.txtbStartDate = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.txtbEndDate = new System.Windows.Forms.TextBox();
             this.rtxtbReportContent = new System.Windows.Forms.RichTextBox();
             this.btnMakeTheReport = new System.Windows.Forms.Button();
             this.btnTop10Products = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.btnRefresh = new System.Windows.Forms.Button();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
+            this.dtpStartDate = new System.Windows.Forms.DateTimePicker();
+            this.dtpEndDate = new System.Windows.Forms.DateTimePicker();
             this.SuspendLayout();
             // 
             // label1
@@ -49,40 +46,10 @@ namespace ModernFlatUI
             this.label1.Location = new System.Drawing.Point(57, 24);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(254, 13);
+            this.label1.Size = new System.Drawing.Size(122, 13);
             this.label1.TabIndex = 2;
-            this.label1.Text = "Choose the Date period in the DD-MM-YYYY format:";
+            this.label1.Text = "Choose the Date period:";
             this.label1.Click += new System.EventHandler(this.label1_Click);
-            // 
-            // txtbStartDate
-            // 
-            this.txtbStartDate.Location = new System.Drawing.Point(59, 68);
-            this.txtbStartDate.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.txtbStartDate.MaxLength = 10;
-            this.txtbStartDate.Name = "txtbStartDate";
-            this.txtbStartDate.Size = new System.Drawing.Size(54, 20);
-            this.txtbStartDate.TabIndex = 1;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(174, 72);
-            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(10, 13);
-            this.label2.TabIndex = 4;
-            this.label2.Text = "-";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // txtbEndDate
-            // 
-            this.txtbEndDate.Location = new System.Drawing.Point(235, 68);
-            this.txtbEndDate.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.txtbEndDate.MaxLength = 10;
-            this.txtbEndDate.Name = "txtbEndDate";
-            this.txtbEndDate.Size = new System.Drawing.Size(54, 20);
-            this.txtbEndDate.TabIndex = 2;
-            this.txtbEndDate.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtbEndDate_KeyUp);
             // 
             // rtxtbReportContent
             // 
@@ -100,7 +67,6 @@ namespace ModernFlatUI
             // btnMakeTheReport
             // 
             this.btnMakeTheReport.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnMakeTheReport.Enabled = false;
             this.btnMakeTheReport.Location = new System.Drawing.Point(540, 388);
             this.btnMakeTheReport.Margin = new System.Windows.Forms.Padding(2, 2, 52, 32);
             this.btnMakeTheReport.MaximumSize = new System.Drawing.Size(112, 32);
@@ -139,7 +105,7 @@ namespace ModernFlatUI
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(232, 47);
+            this.label4.Location = new System.Drawing.Point(186, 47);
             this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(29, 13);
@@ -160,43 +126,43 @@ namespace ModernFlatUI
             this.btnRefresh.UseVisualStyleBackColor = true;
             this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
             // 
-            // dateTimePicker1
+            // dtpStartDate
             // 
-            this.dateTimePicker1.CustomFormat = "3/29/2021";
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker1.Location = new System.Drawing.Point(59, 93);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(112, 20);
-            this.dateTimePicker1.TabIndex = 15;
+            this.dtpStartDate.CustomFormat = "dd-MM-yyyy";
+            this.dtpStartDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpStartDate.Location = new System.Drawing.Point(60, 63);
+            this.dtpStartDate.Name = "dtpStartDate";
+            this.dtpStartDate.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.dtpStartDate.Size = new System.Drawing.Size(112, 20);
+            this.dtpStartDate.TabIndex = 15;
+            this.dtpStartDate.Value = new System.DateTime(2021, 1, 1, 14, 2, 0, 0);
             // 
-            // dateTimePicker2
+            // dtpEndDate
             // 
-            this.dateTimePicker2.CustomFormat = "3/29/2021";
-            this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker2.Location = new System.Drawing.Point(177, 93);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(112, 20);
-            this.dateTimePicker2.TabIndex = 16;
+            this.dtpEndDate.CustomFormat = "dd-MM-yyyy";
+            this.dtpEndDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpEndDate.Location = new System.Drawing.Point(189, 63);
+            this.dtpEndDate.Name = "dtpEndDate";
+            this.dtpEndDate.Size = new System.Drawing.Size(112, 20);
+            this.dtpEndDate.TabIndex = 16;
+            this.dtpEndDate.Value = new System.DateTime(2021, 12, 31, 14, 4, 0, 0);
             // 
             // Reports
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(712, 460);
-            this.Controls.Add(this.dateTimePicker2);
-            this.Controls.Add(this.dateTimePicker1);
+            this.Controls.Add(this.dtpEndDate);
+            this.Controls.Add(this.dtpStartDate);
             this.Controls.Add(this.btnRefresh);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.btnTop10Products);
             this.Controls.Add(this.btnMakeTheReport);
-            this.Controls.Add(this.txtbEndDate);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.txtbStartDate);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.rtxtbReportContent);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Reports";
             this.Text = "Reports";
             this.Load += new System.EventHandler(this.Reports_Load);
@@ -207,16 +173,13 @@ namespace ModernFlatUI
 
         #endregion
         private System.Windows.Forms.Label label1;
-        public System.Windows.Forms.TextBox txtbStartDate;
-        private System.Windows.Forms.Label label2;
-        public System.Windows.Forms.TextBox txtbEndDate;
         public System.Windows.Forms.RichTextBox rtxtbReportContent;
         public System.Windows.Forms.Button btnMakeTheReport;
         public System.Windows.Forms.Button btnTop10Products;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         public System.Windows.Forms.Button btnRefresh;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.DateTimePicker dateTimePicker2;
+        private System.Windows.Forms.DateTimePicker dtpStartDate;
+        private System.Windows.Forms.DateTimePicker dtpEndDate;
     }
 }
