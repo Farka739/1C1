@@ -133,12 +133,14 @@ namespace ModernFlatUI
             }
 
             txtName.Text = dataEditWindow.Rows[0].Cells[0].Value.ToString();
-            txtAmount.Text = dataEditWindow.Rows[0].Cells[1].Value.ToString();
-            txtPrice.Text = dataEditWindow.Rows[0].Cells[2].Value.ToString();
+            txtAmount.Text = dataEditWindow.Rows[0].Cells[2].Value.ToString();
+            txtPrice.Text = dataEditWindow.Rows[0].Cells[1].Value.ToString();
             if (txtName.Text != null)
             {
                 textBox1.ReadOnly = false;
             }
+
+            button2.Enabled = true;
         }
 
         private void dataEditWindow_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)

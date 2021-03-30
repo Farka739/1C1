@@ -80,14 +80,24 @@ namespace ModernFlatUI
 
         private void btnMakeTheReport_Click(object sender, EventArgs e)
         {
-            var startDate = txtbStartDate.Text;
-            var endDate = txtbEndDate.Text;
-
+            var startDate = dtpStartDate.Text.Replace('/', '-');
+            var endDate = dtpEndDate.Text.Replace('/', '-'); ;
             var hdDirectoryInWhichToSearch = new DirectoryInfo(Path);
-            var startDateFiles = hdDirectoryInWhichToSearch.GetFiles("*" + startDate + "*.*");
-            var endDateFiles = hdDirectoryInWhichToSearch.GetFiles("*" + endDate + "*.*");
+            var startDateFiles = hdDirectoryInWhichToSearch.GetFiles("*" + startDate + "*.*").ToList();
+            var endDateFiles = hdDirectoryInWhichToSearch.GetFiles("*" + endDate + "*.*").ToList();
+            if (startDateFiles.Count == 0)
+            {
+                startDateFiles.Add(hdDirectoryInWhichToSearch.GetFiles().OrderBy(f => f.LastWriteTime)
+                    .First());
+            }
+            if (endDateFiles.Count == 0)
+            {
+                endDateFiles.Add(hdDirectoryInWhichToSearch.GetFiles().OrderBy(f => f.LastWriteTime)
+                    .Last());
+            }
+
             var startFile = startDateFiles[0].ToString();
-            var endFile = endDateFiles[endDateFiles.Length - 1].ToString();
+            var endFile = endDateFiles[endDateFiles.Count - 1].ToString();
 
             Directory.GetFiles(Path).Select(f => new FileInfo(f)).OrderBy(f => f.CreationTime);
             File.Copy( Path + "\\" + startFile, ReportPath, true);
@@ -163,6 +173,9 @@ namespace ModernFlatUI
             {
                 rtxtbReportContent.AppendText(line + "\r\n");
             }
+
+            btnMakeTheReport.Enabled = false;
+            btnTop10Products.Enabled = false;
             /*
             var yStart = (startDate[6] - '0').ToString() + (startDate[7] - '0').ToString() + (startDate[8] - '0').ToString() + (startDate[9] - '0').ToString();
             var yEnd = (endDate[6] - '0').ToString() + (endDate[7] - '0').ToString() + (endDate[8] - '0').ToString() + (endDate[9] - '0').ToString();
@@ -215,7 +228,7 @@ namespace ModernFlatUI
 
         private void txtbEndDate_KeyUp(object sender, KeyEventArgs e)
         {
-            if (txtbStartDate.Text.Length == 10 && txtbEndDate.Text.Length == 10)
+            /*if (txtbStartDate.Text.Length == 10 && txtbEndDate.Text.Length == 10)
             {
                 if (txtbStartDate.Text[2] == '-' &&
                     txtbStartDate.Text[5] == '-' && txtbEndDate.Text[2] == '-' && txtbEndDate.Text[5] == '-' &&
@@ -226,7 +239,7 @@ namespace ModernFlatUI
             if (txtbStartDate.Text.Length == 10 && txtbStartDate.Text[3] == '1' && txtbStartDate.Text[4] - '0' >= 3)
                 btnMakeTheReport.Enabled = false;
             if (txtbEndDate.Text.Length == 10 && txtbEndDate.Text[3] == '1' && txtbEndDate.Text[4] - '0' >= 3)
-                btnMakeTheReport.Enabled = false;
+                btnMakeTheReport.Enabled = false;*/
         }
 
         public void GetTop10()
@@ -284,22 +297,27 @@ namespace ModernFlatUI
         private void btnTop10Products_Click(object sender, EventArgs e)
         {
             GetTop10();
-            txtbStartDate.Text = "";
-            txtbStartDate.Enabled = true;
-            txtbEndDate.Text = "";
-            txtbEndDate.Enabled = true;
+           // txtbStartDate.Text = "";
+            //txtbStartDate.Enabled = true;
+            //txtbEndDate.Text = "";
+            //txtbEndDate.Enabled = true;
             btnTop10Products.Enabled = false;
-
+            btnMakeTheReport.Enabled = false;
         }
 
         private void btnRefresh_Click(object sender, EventArgs e)
         {
-            txtbStartDate.Text = "";
-            txtbStartDate.Enabled = true;
-            txtbEndDate.Text = "";
-            txtbEndDate.Enabled = true;
+            //txtbStartDate.Text = "";
+            //txtbStartDate.Enabled = true;
+            //txtbEndDate.Text = "";
+            //txtbEndDate.Enabled = true;
             btnTop10Products.Enabled = true;
             rtxtbReportContent.Text = "";
+            btnMakeTheReport.Enabled = true;
+        }
+
+        private void txtbStartDate_TextChanged(object sender, EventArgs e)
+        {
 
         }
     }
