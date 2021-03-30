@@ -141,6 +141,7 @@ namespace ModernFlatUI
             }
 
             button2.Enabled = true;
+            button1.Enabled = true; // dobavil 30.03.2021 18:24 // NE ROBIT POKA CHTO
         }
 
         private void dataEditWindow_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
