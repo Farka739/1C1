@@ -348,7 +348,7 @@ namespace ModernFlatUI
 
         private System.Windows.Forms.DataGridView dataEditWindow;
         public System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button1;
+        public System.Windows.Forms.Button button1;
         public System.Windows.Forms.TextBox txtName;
         private System.Windows.Forms.TextBox txtAmount;
         private System.Windows.Forms.TextBox txtPrice;

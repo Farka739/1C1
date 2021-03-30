@@ -230,6 +230,7 @@ namespace ModernFlatUI
             if (FrmForm1.txtName.Text == "")
                 FrmForm1.textBox1.ReadOnly = true;
             ShowFormCashRegisterSystem();
+            FrmForm1.button1.Enabled = false;
         }
 
         private void pnlMain_Paint(object sender, PaintEventArgs e)
