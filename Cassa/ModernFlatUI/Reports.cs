@@ -80,6 +80,13 @@ namespace ModernFlatUI
 
         private void btnMakeTheReport_Click(object sender, EventArgs e)
         {
+            if (Directory.GetFiles(Path).Length == 0)
+            {
+                MessageBox.Show("Please, make the purchase first!");
+                return;
+            }
+
+
             var startDate = dtpStartDate.Text.Replace('/', '-');
             var endDate = dtpEndDate.Text.Replace('/', '-'); ;
             var hdDirectoryInWhichToSearch = new DirectoryInfo(Path);
@@ -254,7 +261,7 @@ namespace ModernFlatUI
                 Directory.CreateDirectory(PathTop10ProductsFolder);
             }
 
-            if (!File.Exists(PathTop10ProductsFile))
+            if (!File.Exists(PathTop10ProductsFile) || File.ReadAllLines(PathTop10ProductsFile).Length == 0)
             {
                 using (var sw = File.CreateText(PathTop10ProductsFile))
                 {
@@ -267,6 +274,11 @@ namespace ModernFlatUI
             }
 
             var top10 = File.ReadAllLines(PathTop10ProductsFile);
+            if (top10.Length == 0)
+            {
+                MessageBox.Show(@"Please, make the purchase first!");
+                return;
+            }
             for (var j = 0; j <= top10.Length - 2; j++)
             {
                 for (var i = 0; i <= top10.Length - 2; i++)

@@ -38,6 +38,7 @@ namespace ModernFlatUI
             this.btnOpenTheDescription = new System.Windows.Forms.Button();
             this.btnBackToDefine = new System.Windows.Forms.Button();
             this.btnChangeTheInfo = new System.Windows.Forms.Button();
+            this.btnDeleteTheProduct = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProductList)).BeginInit();
             this.SuspendLayout();
             // 
@@ -60,6 +61,8 @@ namespace ModernFlatUI
             this.dgvProductList.Margin = new System.Windows.Forms.Padding(52, 32, 52, 32);
             this.dgvProductList.MultiSelect = false;
             this.dgvProductList.Name = "dgvProductList";
+            this.dgvProductList.ReadOnly = true;
+            this.dgvProductList.RowHeadersVisible = false;
             this.dgvProductList.RowHeadersWidth = 51;
             this.dgvProductList.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dgvProductList.RowTemplate.Height = 24;
@@ -77,6 +80,7 @@ namespace ModernFlatUI
             this.dgvName.HeaderText = "Name";
             this.dgvName.MinimumWidth = 6;
             this.dgvName.Name = "dgvName";
+            this.dgvName.ReadOnly = true;
             this.dgvName.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvName.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.dgvName.Width = 200;
@@ -88,6 +92,7 @@ namespace ModernFlatUI
             this.dgvPrice.HeaderText = "Price";
             this.dgvPrice.MinimumWidth = 6;
             this.dgvPrice.Name = "dgvPrice";
+            this.dgvPrice.ReadOnly = true;
             this.dgvPrice.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvPrice.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.dgvPrice.Width = 70;
@@ -99,6 +104,7 @@ namespace ModernFlatUI
             this.dgvQuantity.HeaderText = "Amount";
             this.dgvQuantity.MinimumWidth = 6;
             this.dgvQuantity.Name = "dgvQuantity";
+            this.dgvQuantity.ReadOnly = true;
             this.dgvQuantity.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvQuantity.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.dgvQuantity.Width = 120;
@@ -110,6 +116,7 @@ namespace ModernFlatUI
             this.dgvDescription.HeaderText = "Description";
             this.dgvDescription.MinimumWidth = 6;
             this.dgvDescription.Name = "dgvDescription";
+            this.dgvDescription.ReadOnly = true;
             this.dgvDescription.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvDescription.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
@@ -127,6 +134,7 @@ namespace ModernFlatUI
             this.btnOpenTheDescription.Size = new System.Drawing.Size(16, 17);
             this.btnOpenTheDescription.TabIndex = 1;
             this.btnOpenTheDescription.UseVisualStyleBackColor = true;
+            this.btnOpenTheDescription.Visible = false;
             this.btnOpenTheDescription.Click += new System.EventHandler(this.btnOpenTheDescription_Click);
             // 
             // btnBackToDefine
@@ -146,6 +154,7 @@ namespace ModernFlatUI
             // btnChangeTheInfo
             // 
             this.btnChangeTheInfo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnChangeTheInfo.Enabled = false;
             this.btnChangeTheInfo.Location = new System.Drawing.Point(434, 401);
             this.btnChangeTheInfo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 32);
             this.btnChangeTheInfo.MaximumSize = new System.Drawing.Size(150, 32);
@@ -157,11 +166,27 @@ namespace ModernFlatUI
             this.btnChangeTheInfo.UseVisualStyleBackColor = true;
             this.btnChangeTheInfo.Click += new System.EventHandler(this.btnChangeTheInfo_Click);
             // 
+            // btnDeleteTheProduct
+            // 
+            this.btnDeleteTheProduct.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnDeleteTheProduct.Enabled = false;
+            this.btnDeleteTheProduct.Location = new System.Drawing.Point(280, 401);
+            this.btnDeleteTheProduct.Margin = new System.Windows.Forms.Padding(2, 2, 2, 32);
+            this.btnDeleteTheProduct.MaximumSize = new System.Drawing.Size(150, 32);
+            this.btnDeleteTheProduct.MinimumSize = new System.Drawing.Size(150, 32);
+            this.btnDeleteTheProduct.Name = "btnDeleteTheProduct";
+            this.btnDeleteTheProduct.Size = new System.Drawing.Size(150, 32);
+            this.btnDeleteTheProduct.TabIndex = 9;
+            this.btnDeleteTheProduct.Text = "Delete The Product";
+            this.btnDeleteTheProduct.UseVisualStyleBackColor = true;
+            this.btnDeleteTheProduct.Click += new System.EventHandler(this.btnDeleteTheProduct_Click);
+            // 
             // ProductList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(760, 474);
+            this.Controls.Add(this.btnDeleteTheProduct);
             this.Controls.Add(this.btnChangeTheInfo);
             this.Controls.Add(this.btnBackToDefine);
             this.Controls.Add(this.btnOpenTheDescription);
@@ -186,5 +211,6 @@ namespace ModernFlatUI
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvPrice;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvQuantity;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvDescription;
+        private System.Windows.Forms.Button btnDeleteTheProduct;
     }
 }

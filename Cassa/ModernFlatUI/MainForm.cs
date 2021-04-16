@@ -195,7 +195,7 @@ namespace ModernFlatUI
             FrmDefineTheProduct.txtbPrice.Text = "0";*/
             HideSubMenu();
             FrmDefineTheProduct.ClearTheInfoInDefineTheProduct();
-            FrmDefineTheProduct.btnAddTheProduct.Enabled = true;
+            FrmDefineTheProduct.btnAddTheProduct.Enabled = false;
             FrmDefineTheProduct.btnChangeTheProductInfo.Enabled = false;
             pnlMain.Controls.Clear(); 
             ShowFormDefineTheProduct(); 
@@ -223,13 +223,20 @@ namespace ModernFlatUI
 
         private void btnCashRegister_Click(object sender, EventArgs e)
         {
-            HideSubMenu();
-            pnlMain.Controls.Clear();
-            RefreshCashRegisterSystemFromTheStart();
-            FrmForm1.button3.Enabled = File.ReadAllLines(@"OldProductList.txt").Length != 0;
-            if (FrmForm1.txtName.Text == "")
-                FrmForm1.textBox1.ReadOnly = true;
-            ShowFormCashRegisterSystem();
+            if (File.ReadAllLines(@"OldProductList.txt").Length == 0)
+            {
+                MessageBox.Show(@"Please, define the product first!");
+            }
+            else
+            {
+                HideSubMenu();
+                pnlMain.Controls.Clear();
+                RefreshCashRegisterSystemFromTheStart();
+                FrmForm1.button3.Enabled = File.ReadAllLines(@"OldProductList.txt").Length != 0;
+                if (FrmForm1.txtName.Text == "")
+                    FrmForm1.textBox1.ReadOnly = true;
+                ShowFormCashRegisterSystem();
+            }
         }
 
         private void pnlMain_Paint(object sender, PaintEventArgs e)
@@ -251,6 +258,12 @@ namespace ModernFlatUI
 
                 }
             }
+        }
+
+        private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            File.Create("ram.txt").Close();
+
         }
     }
 }

@@ -140,7 +140,8 @@ namespace ModernFlatUI
                 textBox1.ReadOnly = false;
             }
 
-            button2.Enabled = true;
+            button2.Enabled = false;
+            textBox1.Text = "";
         }
 
         private void dataEditWindow_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
@@ -227,7 +228,7 @@ namespace ModernFlatUI
 
         private void AddToTop10Products()
         {
-            if (!File.Exists(PathTop10ProductsFile))
+            if (!File.Exists(PathTop10ProductsFile) || File.ReadAllLines(PathTop10ProductsFile).Length == 0)
             {
                 using (var sw = File.CreateText(PathTop10ProductsFile))
                 {

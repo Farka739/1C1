@@ -115,6 +115,7 @@ namespace ModernFlatUI
             // btnAddTheProduct
             // 
             this.btnAddTheProduct.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnAddTheProduct.Enabled = false;
             this.btnAddTheProduct.Location = new System.Drawing.Point(543, 347);
             this.btnAddTheProduct.Margin = new System.Windows.Forms.Padding(2, 2, 52, 32);
             this.btnAddTheProduct.MaximumSize = new System.Drawing.Size(112, 32);
