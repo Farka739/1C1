@@ -27,6 +27,7 @@ namespace ModernFlatUI
 
         public MainForm()
         {
+            this.Icon = Properties.Resources.cash_register_icon_157312;
             InitializeComponent();
             Mainform = this;
             CustomizeDesign();
