@@ -30,7 +30,7 @@ namespace ModernFlatUI
         private string GetTheProduct()
         {
             
-            var productInfo =  txtbName.Text + '/' + txtbPrice.Text + '/' + nudQuantity.Text + '/' + txtbDescription.Text.Replace("\r", string.Empty).Replace("\n", @"\n");
+            var productInfo =  txtbName.Text + '/' +  int.Parse(txtbPrice.Text).ToString()  + '/' + nudQuantity.Text + '/' + txtbDescription.Text.Replace("\r", string.Empty).Replace("\n", @"\n");
             return productInfo;
         }
         public void ClearTheInfoInDefineTheProduct()
@@ -175,10 +175,17 @@ namespace ModernFlatUI
 
         private void txtbPrice_TextChanged(object sender, EventArgs e)
         {
+            btnAddTheProduct.Enabled = true;
+            if (txtbPrice.Text == @"" || txtbPrice.Text == @"0" )
+                btnAddTheProduct.Enabled = false;
+
             txtbPrice.ForeColor = Color.Black;
             txtbPrice.BackColor = Color.White;
 
+            if (txtbPrice.Text.All(chr => char.IsNumber(chr)) && txtbPrice.Text == @"01" || txtbPrice.Text == @"00" || txtbPrice.Text == @"02" || txtbPrice.Text == @"03" || txtbPrice.Text == @"04" || txtbPrice.Text == @"05" || txtbPrice.Text == @"06" || txtbPrice.Text == @"07" || txtbPrice.Text == @"08" || txtbPrice.Text == @"09")
+                txtbPrice.Text = txtbPrice.Text.Remove(txtbPrice.Text.Length - 1);
             if (txtbPrice.Text.All(chr => char.IsNumber(chr) || chr == '.')) return;
+
             //MessageBox.Show("This textbox accepts only alphabetical characters");
             txtbPrice.Text = txtbPrice.Text.Remove(txtbPrice.Text.Length - 1);
             txtbPrice.SelectionStart = txtbPrice.Text.Length;
