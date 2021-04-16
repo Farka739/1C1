@@ -231,6 +231,7 @@ namespace ModernFlatUI
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cassa";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.pnlSubMenu.ResumeLayout(false);
             this.pnlProductMaintenance.ResumeLayout(false);

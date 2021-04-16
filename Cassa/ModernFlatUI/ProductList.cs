@@ -200,20 +200,53 @@ namespace ModernFlatUI
 
         private void dgvProductList_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            btnOpenTheDescription.Top = dgvProductList
-                .GetCellDisplayRectangle(dgvProductList.CurrentCell.ColumnIndex, dgvProductList.CurrentRow.Index, false).Top + 50;
-           
+            //btnOpenTheDescription.Top = dgvProductList
+            //    .GetCellDisplayRectangle(dgvProductList.CurrentCell.ColumnIndex, dgvProductList.CurrentRow.Index, false).Top + 50;
+            btnDeleteTheProduct.Enabled = true;
+            btnChangeTheInfo.Enabled = true;
         }
 
         private void dgvProductList_Scroll(object sender, ScrollEventArgs e)
         {
-            if (dgvProductList.CurrentRow.Index == 0)
+           /* btnOpenTheDescription.Visible = true;
+          
+
+            if ((dgvProductList.CurrentRow.Index == 0 || dgvProductList.CurrentRow.Index == dgvProductList.Rows.Count - 1) && btnOpenTheDescription.Visible == false)
+            {
+
+                btnOpenTheDescription.Visible = true;
+            }
+            else if (dgvProductList.CurrentRow.Index == 0 || dgvProductList.CurrentRow.Index == dgvProductList.Rows.Count - 1)
             {
                 btnOpenTheDescription.Visible = false;
             }
-            btnOpenTheDescription.Visible = true;
             btnOpenTheDescription.Top = dgvProductList
                 .GetCellDisplayRectangle(dgvProductList.CurrentCell.ColumnIndex, dgvProductList.CurrentRow.Index, false).Top + 50;
+*/
+        }
+
+        private void btnDeleteTheProduct_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Are you sure you want to delete this product?", "My Application", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                var rowIndex = dgvProductList.CurrentCell.RowIndex;
+
+                var newLine = products[rowIndex];
+                var lineToWrite = newLine.Name + '/' + newLine.Price + '/' + newLine.Quantity + '/' + newLine.Description;
+                var lines = File.ReadAllLines(Path).Where(line => line.Trim() != lineToWrite).ToArray();
+                File.WriteAllLines(Path, lines);
+                products.RemoveAt(rowIndex);
+                FrmProductList.dgvProductList.Rows.Clear();
+                for (var i = 0; i < FrmProductList.products.Count; i++)
+                {
+                    FrmProductList.dgvProductList.Rows.Add(FrmProductList.products[i].Name, FrmProductList.products[i].Price, FrmProductList.products[i].Quantity, FrmProductList.products[i].Description);
+                }
+                dgvProductList.Refresh();
+            }
+            else
+            {
+                return;
+            }
 
         }
     }
