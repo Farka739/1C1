@@ -223,6 +223,7 @@ namespace ModernFlatUI
 
         private void btnCashRegister_Click(object sender, EventArgs e)
         {
+
             if (File.ReadAllLines(@"OldProductList.txt").Length == 0)
             {
                 MessageBox.Show(@"Please, define the product first!");
@@ -237,6 +238,7 @@ namespace ModernFlatUI
                     FrmForm1.textBox1.ReadOnly = true;
                 ShowFormCashRegisterSystem();
             }
+
         }
 
         private void pnlMain_Paint(object sender, PaintEventArgs e)

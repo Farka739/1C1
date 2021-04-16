@@ -140,15 +140,17 @@ namespace ModernFlatUI
                 textBox1.ReadOnly = false;
             }
 
+
             button2.Enabled = false;
             textBox1.Text = "";
+
         }
 
         private void dataEditWindow_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             if (e.RowIndex < 0) return;
             textBox1.Enabled = true;
-            button2.Enabled = true;
+            /*button2.Enabled = true;*/
             var row = dataEditWindow.Rows[e.RowIndex];
             txtName.Text = row.Cells[0].Value.ToString();
             b = row.Cells[1].Value.ToString();
@@ -160,6 +162,10 @@ namespace ModernFlatUI
                 textBox1.Enabled = false;
                 button2.Enabled = false;
                 button1.Enabled = false;
+            } else
+            {
+                button2.Enabled = true;
+                button1.Enabled = new FileInfo(Environment.CurrentDirectory + "\\ram.txt").Length != 0;
             }
             var totam = textBox1.Text;
             var b1 = string.IsNullOrEmpty(totam);
@@ -204,18 +210,24 @@ namespace ModernFlatUI
             }
             else
             {
+                int exzero1stvalue = totam.IndexOf('0');
                 if (int.Parse(textBox1.Text) > int.Parse(txtAmount.Text))
                 {
                     MessageBox.Show(@"Your value is out of the range of available items!");
                     button2.Enabled = false;
                 }
-                else
-                {
+                else 
+                { if(exzero1stvalue == 0)
+                    {
+                        button2.Enabled = false;
+                        button1.Enabled = false;
+                    } else { 
                     button2.Enabled = true;
                     total1st = int.Parse(textBox1.Text);
                     total2st = double.Parse(txtPrice.Text, CultureInfo.InvariantCulture); 
                     totalsum = total1st * total2st;
                     total.Text = $@"{totalsum}";
+                    }
                 }
             }
 
@@ -457,7 +469,24 @@ namespace ModernFlatUI
             {
                 e.Handled = true;
             }
-           
+            string exzero = textBox1.Text;
+            var extrue = string.IsNullOrEmpty(exzero);
+            if (extrue)
+            {
+
+            }
+            else
+            {
+                int exzero1stvalue = exzero.IndexOf('0');
+                if (exzero1stvalue == 0)
+                {
+                    button2.Enabled = false;
+                }
+                else
+                {
+                    button2.Enabled = true;
+                }
+            }
         }
 
         private void dataEditWindow_CellContentClick(object sender, DataGridViewCellEventArgs e)
