@@ -30,7 +30,7 @@ namespace ModernFlatUI
         private string GetTheProduct()
         {
             
-            var productInfo =  txtbName.Text + '/' +  int.Parse(txtbPrice.Text).ToString()  + '/' + nudQuantity.Text + '/' + txtbDescription.Text.Replace("\r", string.Empty).Replace("\n", @"\n");
+            var productInfo =  txtbName.Text + '/' +  txtbPrice.Text  + '/' + nudQuantity.Text + '/' + txtbDescription.Text.Replace("\r", string.Empty).Replace("\n", @"\n");
             return productInfo;
         }
         public void ClearTheInfoInDefineTheProduct()
