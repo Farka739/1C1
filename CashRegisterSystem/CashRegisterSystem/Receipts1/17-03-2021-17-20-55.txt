@@ -1,2 +1,0 @@
-Total: 
-The information below is NAME | PRICE | AMOUNT | ID NUMBER IN THE TABLE
