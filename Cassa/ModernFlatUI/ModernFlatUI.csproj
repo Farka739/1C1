@@ -45,9 +45,6 @@
     <ApplicationIcon>cash_register_icon_157312.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="MySql.Data, Version=8.0.28.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
-    <Reference Include="MySql.Data.EntityFramework, Version=8.0.28.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
-    <Reference Include="MySql.Web, Version=8.0.28.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />

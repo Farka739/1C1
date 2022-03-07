@@ -51,7 +51,7 @@ namespace ModernFlatUI
 
                 }
             }
-            var lines = File.ReadAllLines(Path);  //!!!CHANGE TO DB
+            var lines = File.ReadAllLines(Path);
             foreach (var line in lines)
             {
                 var values = line.Split('/');
@@ -139,7 +139,7 @@ namespace ModernFlatUI
             var newLine = products[rowIndex];
             var lineToWrite = newLine.Name + '/' + newLine.Price + '/' + newLine.Quantity + '/' + newLine.Description;
             var lineNumber = 0;
-            using (var reader = new StreamReader(Path)) //!!!! CHANGE TO DB FROM HERE
+            using (var reader = new StreamReader(Path))
             using (var writer = new StreamWriter(TempPath))
             {
                 string line = null;
@@ -150,7 +150,7 @@ namespace ModernFlatUI
                 }
             }
             var arrLine = File.ReadAllLines(TempPath);
-            File.WriteAllLines(Path, arrLine); //!!!! TO HERE
+            File.WriteAllLines(Path, arrLine);
         }
         
         private void btnOpenTheDescription_Click(object sender, EventArgs e)
@@ -247,11 +247,6 @@ namespace ModernFlatUI
             {
                 return;
             }
-
-        }
-
-        private void dgvProductList_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
 
         }
     }
