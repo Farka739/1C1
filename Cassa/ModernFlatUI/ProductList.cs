@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using System.IO;
 using static ModernFlatUI.DefineTheProduct;
 using static ModernFlatUI.MainForm;
+using MySql.Data.MySqlClient;
 
 namespace ModernFlatUI
 {
@@ -20,6 +21,7 @@ namespace ModernFlatUI
 
         public string Path = Environment.CurrentDirectory + "\\OldProductList.txt";
         public string TempPath = Environment.CurrentDirectory + "\\TempFile.txt";
+        static string myConnectionString = "server=localhost;user id=root;pwd=221102;database=cashregister;sslmode=None;allowuservariables=True;persistsecurityinfo=True";
 
         internal static ProductList FrmProductList;
 
@@ -44,7 +46,34 @@ namespace ModernFlatUI
 
         public void GetTheProductInfo()
         {
-            if (!File.Exists(Path))
+            MySql.Data.MySqlClient.MySqlConnection conn;
+            conn = new MySql.Data.MySqlClient.MySqlConnection();
+
+            try
+            {
+                conn.ConnectionString = myConnectionString;
+                conn.Open();
+                string sql = "SELECT name, price, amount, description FROM products;";
+                MySqlCommand cmd = new MySqlCommand(sql, conn);
+                MySqlDataReader rdr = cmd.ExecuteReader();
+
+                while (rdr.Read())
+                {
+                    string row = "";
+                    for (int i = 0; i < rdr.FieldCount; i++)
+                    {
+                        row = row + rdr[i] + "/";
+                    }
+                    var values = row.Split('/');
+                    products.Add(new Product(values[0], values[1], values[2], values[3]));
+                }
+            }
+            catch (MySql.Data.MySqlClient.MySqlException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+            /*if (!File.Exists(Path))
             {
                 using (var sw = File.CreateText(Path))
                 {
@@ -56,7 +85,7 @@ namespace ModernFlatUI
             {
                 var values = line.Split('/');
                 products.Add(new Product(values[0], values[1], values[2], values[3]));
-            }
+            }*/
         }
 
         public ProductList()
@@ -230,11 +259,11 @@ namespace ModernFlatUI
             if (MessageBox.Show("Are you sure you want to delete this product?", "My Application", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
                 var rowIndex = dgvProductList.CurrentCell.RowIndex;
-
-                var newLine = products[rowIndex];
-                var lineToWrite = newLine.Name + '/' + newLine.Price + '/' + newLine.Quantity + '/' + newLine.Description;
-                var lines = File.ReadAllLines(Path).Where(line => line.Trim() != lineToWrite).ToArray();
-                File.WriteAllLines(Path, lines);
+                deleteRow(rowIndex + 1);
+               // var newLine = products[rowIndex];
+               // var lineToWrite = newLine.Name + '/' + newLine.Price + '/' + newLine.Quantity + '/' + newLine.Description;
+                //var lines = File.ReadAllLines(Path).Where(line => line.Trim() != lineToWrite).ToArray();
+                //File.WriteAllLines(Path, lines);
                 products.RemoveAt(rowIndex);
                 FrmProductList.dgvProductList.Rows.Clear();
                 for (var i = 0; i < FrmProductList.products.Count; i++)
@@ -249,5 +278,34 @@ namespace ModernFlatUI
             }
 
         }
+
+        public static void deleteRow(int id)
+        {
+
+            MySqlConnection conn;
+            conn = new MySqlConnection();
+
+            try
+            {
+                conn.ConnectionString = myConnectionString;
+                conn.Open();
+                MySqlCommand command;
+                MySqlDataAdapter adapter = new MySqlDataAdapter();
+                string sql = "Delete FROM products WHERE product_id = " + id + ";";
+                command = new MySqlCommand(sql, conn);
+
+                adapter.DeleteCommand = new MySqlCommand(sql, conn);
+                adapter.DeleteCommand.ExecuteNonQuery();
+                command.Dispose();
+                conn.Close();
+               
+            }
+            catch (MySql.Data.MySqlClient.MySqlException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+        }
     }
 }
+
