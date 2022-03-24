@@ -128,24 +128,25 @@ namespace ModernFlatUI
             // 
             // dtpStartDate
             // 
-            this.dtpStartDate.CustomFormat = "dd-MM-yyyy";
+            this.dtpStartDate.CustomFormat = "yyyy-MM-dd";
             this.dtpStartDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtpStartDate.Location = new System.Drawing.Point(60, 63);
             this.dtpStartDate.Name = "dtpStartDate";
             this.dtpStartDate.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.dtpStartDate.Size = new System.Drawing.Size(112, 20);
             this.dtpStartDate.TabIndex = 15;
-            this.dtpStartDate.Value = new System.DateTime(2021, 1, 1, 14, 2, 0, 0);
+            this.dtpStartDate.Value = new System.DateTime(2022, 1, 1, 14, 2, 0, 0);
             // 
             // dtpEndDate
             // 
-            this.dtpEndDate.CustomFormat = "dd-MM-yyyy";
+            this.dtpEndDate.Cursor = System.Windows.Forms.Cursors.No;
+            this.dtpEndDate.CustomFormat = "yyyy-MM-dd";
             this.dtpEndDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtpEndDate.Location = new System.Drawing.Point(189, 63);
             this.dtpEndDate.Name = "dtpEndDate";
             this.dtpEndDate.Size = new System.Drawing.Size(112, 20);
             this.dtpEndDate.TabIndex = 16;
-            this.dtpEndDate.Value = new System.DateTime(2021, 12, 31, 14, 4, 0, 0);
+            this.dtpEndDate.Value = new System.DateTime(2022, 12, 31, 14, 4, 0, 0);
             // 
             // Reports
             // 
